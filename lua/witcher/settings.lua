@@ -1,6 +1,10 @@
 local global = vim.g
 local o = vim.opt
 
+global.loaded_netrw = 1
+global.loaded_netrwPlugin = 1
+
+
 -- Editor options
 
 o.number = true -- Print the line number in front of each line
