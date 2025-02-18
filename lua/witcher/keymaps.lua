@@ -40,7 +40,10 @@ vim.keymap.set('n', '<leader>c', ':bdelete!<CR>', opts) -- close buffer
 vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 --Open terminal at the bottom in the current directory
-vim.keymap.set('n', '<leader>t', ':split<CR>:resize 10<CR>:term<CR>', opts)
+vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)
+
+--Open terminal in the current window
+vim.keymap.set('n', '<leader>tt', '<cmd>term<CR>', opts)
 
 --Save current file
 vim.keymap.set('n', '<leader>ww', '<cmd>w<CR>', opts)
@@ -77,7 +80,7 @@ vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<CR>', opts)
 --vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<CR>") -- rather keep terminal shortcuts for clearing
 
 --close terminal
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n><C-w>q')
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 --Commenting/uncommenting lines
 -- see https://slar.se/comment-and-uncomment-code-in-neovim.html
@@ -113,3 +116,19 @@ vim.keymap.set('n', '<leader>co', ':CommentOut<CR>', opts)
 vim.api.nvim_create_user_command('Uncomment', uncomment, { range = true })
 vim.keymap.set('v', '<leader>uc', ':Uncomment<CR>', opts)
 vim.keymap.set('n', '<leader>uc', ':Uncomment<CR>', opts)
+
+
+-- Diagnostics toggle
+-- https://www.reddit.com/r/neovim/comments/1ae6iwm/disable_lsp_diagnostics/
+vim.g["diagnostics_active"] = true
+function Toggle_diagnostics()
+    if vim.g.diagnostics_active then
+        vim.g.diagnostics_active = false
+        vim.diagnostic.disable()
+    else
+        vim.g.diagnostics_active = true
+        vim.diagnostic.enable()
+    end
+end
+
+vim.keymap.set('n', '<leader>dd', Toggle_diagnostics, opts)

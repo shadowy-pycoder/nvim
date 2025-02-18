@@ -18,12 +18,14 @@ return {
         'shfmt', -- Shell formatter
         'checkmake', -- linter for Makefiles
         'ruff', -- Python linter and formatter
+        'mypy', -- Python 
       },
       automatic_installation = true,
     })
 
     local sources = {
       diagnostics.checkmake,
+      diagnostics.mypy,
       formatting.prettier.with({ filetypes = { 'html', 'json', 'yaml', 'markdown' } }),
       formatting.stylua,
       formatting.shfmt.with({ args = { '-i', '4' } }),
