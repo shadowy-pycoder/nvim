@@ -51,6 +51,13 @@ vim.keymap.set('n', '<leader>wc', '<cmd>q<CR>', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
+-- Insert mode
+-- Move cursor
+vim.keymap.set('i', '<A-h>', '<C-o>h', opts)
+vim.keymap.set('i', '<A-j>', '<C-o>j', opts)
+vim.keymap.set('i', '<A-k>', '<C-o>k', opts)
+vim.keymap.set('i', '<A-l>', '<C-o>l', opts)
+
 --Visual mode
 --Move selected lines
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
