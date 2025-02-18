@@ -28,6 +28,18 @@ vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
 vim.keymap.set("n", "<leader>e", "<C-w>=", opts) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>x", ":close<CR>", opts) -- close current split window
 
+-- Resize windows with alt
+vim.keymap.set("n", "<A-h>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<A-j>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<A-k>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<A-l>", ":vertical resize +2<CR>", opts)
+
+-- Buffers
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<leader>c", ":bdelete!<CR>", opts) -- close buffer
+vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
+
 --Open terminal at the bottom in the current directory
 vim.keymap.set("n", "<leader>t", ":split<CR>:resize 10<CR>:term<CR>", opts)
 
