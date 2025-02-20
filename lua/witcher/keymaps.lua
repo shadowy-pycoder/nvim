@@ -48,6 +48,9 @@ vim.keymap.set('n', '<leader>tt', '<cmd>term<CR>', opts)
 --Save current file
 vim.keymap.set('n', '<leader>ww', '<cmd>w<CR>', opts)
 
+-- Save file without auto-formatting
+vim.keymap.set('n', '<leader>wd', '<cmd>noautocmd w <CR>', opts)
+
 --Close current file
 vim.keymap.set('n', '<leader>wc', '<cmd>q<CR>', opts)
 
