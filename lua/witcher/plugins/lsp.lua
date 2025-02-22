@@ -57,7 +57,7 @@ return {
             init_options = {
               settings = {
                 configuration = '~/.config/nvim/ruff.toml',
-                configurationPreference = "editorFirst",
+                configurationPreference = "editorOnly",
               }
             }
           })

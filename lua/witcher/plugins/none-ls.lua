@@ -18,7 +18,7 @@ return {
         'shfmt', -- Shell formatter
         'checkmake', -- linter for Makefiles
         'ruff', -- Python linter and formatter
-        'mypy', -- Python 
+        'mypy', -- Python type checker
       },
       automatic_installation = true,
     })
