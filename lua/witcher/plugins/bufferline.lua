@@ -46,6 +46,7 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
           fg = '#434C5E',
         },
         buffer_selected = {
+          fg = '#CCCCCC',
           italic = false,
         },
         modified = {

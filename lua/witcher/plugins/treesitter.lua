@@ -36,6 +36,7 @@ return {
         'go',
         'python',
         'toml',
+        'sql',
       },
       incremental_selection = {
         enable = true,
