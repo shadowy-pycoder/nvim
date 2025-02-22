@@ -51,6 +51,17 @@ return {
             },
           })
         end,
+        ['ruff'] = function()
+          local lspconfig = require('lspconfig')
+          lspconfig.ruff.setup({
+            init_options = {
+              settings = {
+                configuration = '~/.config/nvim/ruff.toml',
+                configurationPreference = "editorFirst",
+              }
+            }
+          })
+        end,
       },
     })
 
