@@ -23,7 +23,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
 -- Window management
 vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
+vim.keymap.set('n', '<leader>hn', '<C-w>s', opts) -- split window horizontally
 vim.keymap.set('n', '<leader>e', '<C-w>=', opts) -- make split windows equal width & height
 vim.keymap.set('n', '<leader>x', ':close<CR>', opts) -- close current split window
 
@@ -117,8 +117,8 @@ vim.keymap.set('v', '<leader>co', ':CommentOut<CR>', opts)
 vim.keymap.set('n', '<leader>co', ':CommentOut<CR>', opts)
 
 vim.api.nvim_create_user_command('Uncomment', uncomment, { range = true })
-vim.keymap.set('v', '<leader>uc', ':Uncomment<CR>', opts)
-vim.keymap.set('n', '<leader>uc', ':Uncomment<CR>', opts)
+vim.keymap.set('v', '<leader>cu', ':Uncomment<CR>', opts)
+vim.keymap.set('n', '<leader>cu', ':Uncomment<CR>', opts)
 
 
 -- Diagnostics toggle
