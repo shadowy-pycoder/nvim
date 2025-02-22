@@ -1,4 +1,4 @@
-return {
+return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferline.txt
   'akinsho/bufferline.nvim',
   dependencies = {
     'moll/vim-bbye',
@@ -46,8 +46,31 @@ return {
           fg = '#434C5E',
         },
         buffer_selected = {
-          bold = true,
           italic = false,
+        },
+        modified = {
+          fg = '#D7BA7D',
+        },
+        modified_visible = {
+          fg = '#D7BA7D',
+        },
+        modified_selected = {
+          fg = '#D7BA7D',
+        },
+        buffer_visible = {
+          fg = '#9d9d9d',
+        },
+        background = {
+          fg = '#9d9d9d',
+        },
+        close_button = {
+          fg = '#9d9d9d',
+        },
+        close_button_visible = {
+          fg = '#9d9d9d',
+        },
+        close_button_selected = {
+          fg = '#9d9d9d',
         },
         -- separator_selected = {},
         -- tab_selected = {},
