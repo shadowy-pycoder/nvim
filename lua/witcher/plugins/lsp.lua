@@ -24,7 +24,7 @@ return {
     require('mason-lspconfig').setup({
       ensure_installed = {
         'lua_ls',
-        'jedi_language_server',
+        'pylsp',
         'gopls',
         'clangd',
         'ruff',
@@ -62,6 +62,25 @@ return {
             }
           })
         end,
+        ['pylsp'] = function()
+          local lspconfig = require('lspconfig')
+          lspconfig.pylsp.setup({
+            settings = {
+              pylsp = {
+                plugins = {
+                  pyflakes = { enabled = false },
+                  pycodestyle = { enabled = false },
+                  autopep8 = { enabled = false },
+                  yapf = { enabled = false },
+                  mccabe = { enabled = false },
+                  pylsp_mypy = { enabled = false },
+                  pylsp_black = { enabled = false },
+                  pylsp_isort = { enabled = false },
+                },
+              },
+            },
+        })
+      end,
       },
     })
 

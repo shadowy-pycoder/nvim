@@ -29,8 +29,8 @@ return {
       formatting.prettier.with({ filetypes = { 'html', 'json', 'yaml', 'markdown' } }),
       formatting.stylua,
       formatting.shfmt.with({ args = { '-i', '4' } }),
-      require('none-ls.formatting.ruff').with({ extra_args = { '--config', '~/.config/nvim/ruff.toml' } }),
-      require('none-ls.formatting.ruff_format').with({ extra_args = { '--config', '~/.config/nvim/ruff.toml' } }),
+      require('none-ls.formatting.ruff'),
+      require('none-ls.formatting.ruff_format'),
     }
 
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
