@@ -12,6 +12,9 @@ return {
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
+        disable = function()
+          return vim.b.large_buf
+        end,
       },
       indent = { enable = true },
       autotag = {
@@ -37,6 +40,7 @@ return {
         'python',
         'toml',
         'sql',
+        'comment',
       },
       incremental_selection = {
         enable = true,

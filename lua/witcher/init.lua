@@ -61,3 +61,21 @@ autocmd('BufWritePre', {
     vim.lsp.buf.format({ async = false })
   end,
 })
+
+-- https://www.reddit.com/r/neovim/comments/z85s1l/disable_lsp_for_very_large_files/
+local aug = vim.api.nvim_create_augroup('buf_large', { clear = true })
+local max_filesize = 100 * 1024 -- 100 KB
+
+vim.api.nvim_create_autocmd({ 'BufReadPre' }, {
+  callback = function()
+    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
+    if ok and stats and (stats.size > max_filesize) then
+      vim.b.large_buf = true
+      vim.cmd('syntax off')
+    else
+      vim.b.large_buf = false
+    end
+  end,
+  group = aug,
+  pattern = '*',
+})

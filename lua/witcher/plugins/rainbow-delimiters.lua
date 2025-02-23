@@ -21,6 +21,9 @@ return {
         'DelimPink',
         'DelimBlue',
       },
+      condition = function()
+        return not vim.b.large_buf
+      end,
     }
   end,
 }
