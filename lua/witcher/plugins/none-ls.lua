@@ -37,6 +37,9 @@ return {
     null_ls.setup({
       -- debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
       sources = sources,
+      should_attach = function(bufnr)
+        return not vim.api.nvim_buf_get_name(bufnr):match("^fugitive://")
+      end,
       -- you can reuse a shared lspconfig on_attach callback here
       on_attach = function(client, bufnr)
         if not vim.b.large_buf and client.supports_method('textDocument/formatting') then
