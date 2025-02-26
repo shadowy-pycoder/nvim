@@ -28,6 +28,7 @@ return {
         'gopls',
         'clangd',
         'ruff',
+        'yamlls',
       },
       handlers = {
         function(server_name) -- default handler (optional)

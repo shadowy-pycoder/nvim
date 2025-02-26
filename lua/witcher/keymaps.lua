@@ -60,6 +60,9 @@ vim.keymap.set('n', 'x', '"_x', opts)
 -- change working directory to the location of the current file
 vim.keymap.set('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<CR>', opts)
 
+-- clear highlighting
+vim.keymap.set('n', '<C-n>', '<cmd>noh<CR>', opts)
+
 -- Insert mode
 -- Move cursor
 vim.keymap.set('i', '<A-h>', '<C-o>h', opts)
