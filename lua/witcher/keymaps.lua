@@ -42,6 +42,9 @@ vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 --Open terminal at the bottom in the current directory
 vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)
 
+--Run Python shell with one command
+vim.keymap.set('n', '<leader>tp', ':split<CR>:resize 10<CR>:term python3.13<CR>', opts)
+
 --Open terminal in the current window
 vim.keymap.set('n', '<leader>tt', '<cmd>term<CR>', opts)
 
