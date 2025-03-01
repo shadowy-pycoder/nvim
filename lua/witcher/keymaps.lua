@@ -61,9 +61,6 @@ vim.keymap.set('n', '<leader>wc', '<cmd>q<CR>', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
--- change working directory to the location of the current file
-vim.keymap.set('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<CR>', opts)
-
 -- clear highlighting
 vim.keymap.set('n', '<C-n>', '<cmd>noh<CR>', opts)
 
@@ -109,3 +106,6 @@ function Toggle_diagnostics()
 end
 
 vim.keymap.set('n', '<leader>dd', Toggle_diagnostics, opts)
+
+-- open diagnostics in a float window
+vim.keymap.set('n', '<leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)

@@ -79,3 +79,18 @@ autocmd({ 'BufReadPre' }, {
   group = aug,
   pattern = '*',
 })
+
+autocmd({ 'VimEnter', 'VimResized' }, {
+  desc = 'Setup LSP hover window',
+  callback = function()
+    local width = math.floor(vim.o.columns * 0.5)
+    local height = math.floor(vim.o.lines * 0.5)
+
+    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = 'rounded',
+      max_width = width,
+      max_height = height,
+      silent = true, -- Disable `No information available` notification
+    })
+  end,
+})

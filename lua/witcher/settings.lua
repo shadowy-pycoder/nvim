@@ -6,6 +6,7 @@ global.loaded_netrwPlugin = 1
 
 -- Editor options
 
+o.guicursor = ""
 o.number = true -- Print the line number in front of each line
 o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
 o.clipboard = 'unnamedplus' -- uses the clipboard register for all operations except yank.
