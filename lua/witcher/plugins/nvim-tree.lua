@@ -27,7 +27,7 @@ return {
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
-        signcolumn = 'yes',
+        signcolumn = 'no',
         width = 30,
         float = {
           enable = false,
@@ -152,7 +152,7 @@ return {
       },
       diagnostics = {
         enable = false,
-        show_on_dirs = false,
+        show_on_dirs = true,
         show_on_open_dirs = true,
         debounce_delay = 500,
         severity = {
@@ -160,10 +160,10 @@ return {
           max = vim.diagnostic.severity.ERROR,
         },
         icons = {
-          hint = '',
-          info = '',
-          warning = '',
-          error = '',
+          hint = "󰌶",
+          info = "󰋽",
+          warning = "󰀪",
+          error = "󰅚",
         },
       },
       modified = {
