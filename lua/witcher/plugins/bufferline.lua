@@ -44,6 +44,7 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
       highlights = {
         separator = {
           fg = '#434C5E',
+          bg = '#1f1f1f',
         },
         buffer_selected = {
           fg = '#CCCCCC',
@@ -63,15 +64,22 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
         },
         background = {
           fg = '#9d9d9d',
+          bg = '#1f1f1f',
         },
         close_button = {
           fg = '#9d9d9d',
+          bg = '#1f1f1f',
         },
         close_button_visible = {
           fg = '#9d9d9d',
+          bg = '#1f1f1f',
         },
         close_button_selected = {
           fg = '#9d9d9d',
+          bg = '#1f1f1f',
+        },
+        fill = {
+          bg = '#1f1f1f',
         },
         -- separator_selected = {},
         -- tab_selected = {},
