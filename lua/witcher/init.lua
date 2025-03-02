@@ -94,3 +94,18 @@ autocmd({ 'VimEnter', 'VimResized' }, {
     })
   end,
 })
+
+
+-- icons for diagnostic messages 
+-- https://www.reddit.com/r/neovim/comments/1ai7xx1/lsp_diagnostics_character_change/
+-- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/diagnostics/config.lua
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚 ",
+      [vim.diagnostic.severity.WARN] = "󰀪 ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+      [vim.diagnostic.severity.INFO] = "󰋽 ",
+    },
+  },
+})
