@@ -40,10 +40,23 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
         maximum_padding = 5,
         maximum_length = 15,
         sort_by = 'insert_at_end',
+        offsets = {
+          -- {
+          --   filetype = "NvimTree",
+          --   text = "",
+          --   highlight = "NvimTreeNormal",
+          --   separator = true,
+          --   text_align = "left",
+          -- },
+        },
       },
       highlights = {
         separator = {
           fg = '#434C5E',
+          bg = '#1f1f1f',
+        },
+        offset_separator = {
+          --fg = '#434C5E',
           bg = '#1f1f1f',
         },
         buffer_selected = {
