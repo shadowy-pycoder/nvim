@@ -60,8 +60,9 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
           bg = '#1f1f1f',
         },
         buffer_selected = {
-          fg = '#CCCCCC',
+          fg = '#ffffff',
           italic = false,
+          bold = false,
         },
         modified = {
           fg = '#D7BA7D',
