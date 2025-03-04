@@ -49,11 +49,6 @@ return {
             buffer = bufnr,
             callback = function()
               vim.lsp.buf.format({ async = false })
-              -- Organize imports on save https://github.com/astral-sh/ruff-lsp/issues/95
-              vim.lsp.buf.code_action({
-                context = { only = { 'source.organizeImports' } },
-                apply = true,
-              })
             end,
           })
         end

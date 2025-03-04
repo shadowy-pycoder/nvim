@@ -60,7 +60,11 @@ return {
             init_options = {
               settings = {
                 configuration = '~/.config/nvim/ruff.toml',
-                configurationPreference = "editorOnly",
+                configurationPreference = "filesystemFirst",
+                organizeImports = true,
+                format = {
+                  enable = true,
+                }
               }
             }
           })
@@ -129,6 +133,7 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'nvim_lsp_signature_help' },
+        { name = 'render-markdown' },
       }, {
         { name = 'buffer' },
       }),
