@@ -60,7 +60,6 @@ return {
             init_options = {
               settings = {
                 configuration = '~/.config/nvim/ruff.toml',
-                configurationPreference = "filesystemFirst",
                 organizeImports = true,
                 format = {
                   enable = true,
