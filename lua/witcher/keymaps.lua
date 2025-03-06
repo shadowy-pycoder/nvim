@@ -64,6 +64,9 @@ vim.keymap.set('n', 'x', '"_x', opts)
 -- clear highlighting
 vim.keymap.set('n', '<C-n>', '<cmd>noh<CR>', opts)
 
+-- nvim tree toggle
+vim.keymap.set('n', '<leader>E', '<cmd>NvimTreeToggle<CR>', opts)
+
 -- Insert mode
 -- Move cursor
 vim.keymap.set('i', '<A-h>', '<C-o>h', opts)
