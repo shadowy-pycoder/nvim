@@ -67,12 +67,15 @@ vim.keymap.set('n', '<C-n>', '<cmd>noh<CR>', opts)
 -- nvim tree toggle
 vim.keymap.set('n', '<leader>E', '<cmd>NvimTreeToggle<CR>', opts)
 
+-- substitute a word with last yanked
+vim.keymap.set('n', 'S', 'diw"0P', opts)
+
 -- Insert mode
 -- Move cursor
-vim.keymap.set('i', '<A-h>', '<C-o>h', opts)
-vim.keymap.set('i', '<A-j>', '<C-o>j', opts)
-vim.keymap.set('i', '<A-k>', '<C-o>k', opts)
-vim.keymap.set('i', '<A-l>', '<C-o>l', opts)
+vim.keymap.set('i', '<A-h>', '<Left>', opts)
+vim.keymap.set('i', '<A-j>', '<Down>', opts)
+vim.keymap.set('i', '<A-k>', '<Up>', opts)
+vim.keymap.set('i', '<A-l>', '<Right>', opts)
 
 --Visual mode
 --Move selected lines
