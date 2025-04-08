@@ -25,7 +25,13 @@ return {
 
     local sources = {
       diagnostics.checkmake,
-      diagnostics.mypy,
+      -- https://stackoverflow.com/questions/76487150/how-to-avoid-cannot-find-implementation-or-library-stub-when-mypy-is-installed
+      diagnostics.mypy.with({
+        extra_args = function()
+        local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+        return { "--python-executable", virtual .. "/bin/python3" }
+        end,
+      }),
       formatting.prettier.with({ filetypes = { 'html', 'json', 'yaml', 'markdown' } }),
       formatting.stylua,
       formatting.shfmt.with({ args = { '-i', '4' } }),
