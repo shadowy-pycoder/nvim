@@ -4,6 +4,7 @@ return {
     'nvimtools/none-ls-extras.nvim',
     'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
   },
+  enabled = true,
   config = function()
     local null_ls = require('null-ls')
     local formatting = null_ls.builtins.formatting -- to setup formatters
