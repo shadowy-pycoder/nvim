@@ -3,6 +3,7 @@ local o = vim.opt
 
 global.loaded_netrw = 1
 global.loaded_netrwPlugin = 1
+global.lazy_keys = false
 
 -- Editor options
 

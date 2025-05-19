@@ -18,8 +18,13 @@ local opts = { noremap = true, silent = true }
 
 --Normal mode
 -- Vertical scroll and center
-vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
-vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
+if vim.g.lazy_keys then
+  vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
+  vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
+else
+  vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
+  vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+end
 --vim.keymap.set('n', 'G', 'Gzz', opts)
 
 vim.keymap.set('n', 'J', 'mzJ`z', opts)
