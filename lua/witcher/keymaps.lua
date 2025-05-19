@@ -1,3 +1,13 @@
+-- https://www.reddit.com/r/neovim/comments/1707ppd/comment/k3jo5oi/
+local function lazy(keys)
+  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  return function()
+    vim.o.lazyredraw = true
+    vim.api.nvim_feedkeys(keys, 'nx', false)
+    vim.o.lazyredraw = false
+  end
+end
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -8,8 +18,8 @@ local opts = { noremap = true, silent = true }
 
 --Normal mode
 -- Vertical scroll and center
-vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
-vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
+vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
 --vim.keymap.set('n', 'G', 'Gzz', opts)
 
 vim.keymap.set('n', 'J', 'mzJ`z', opts)
@@ -100,15 +110,15 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- Diagnostics toggle
 -- https://www.reddit.com/r/neovim/comments/1ae6iwm/disable_lsp_diagnostics/
-vim.g["diagnostics_active"] = true
+vim.g['diagnostics_active'] = true
 function Toggle_diagnostics()
-    if vim.g.diagnostics_active then
-        vim.g.diagnostics_active = false
-        vim.diagnostic.disable()
-    else
-        vim.g.diagnostics_active = true
-        vim.diagnostic.enable()
-    end
+  if vim.g.diagnostics_active then
+    vim.g.diagnostics_active = false
+    vim.diagnostic.disable()
+  else
+    vim.g.diagnostics_active = true
+    vim.diagnostic.enable()
+  end
 end
 
 vim.keymap.set('n', '<leader>dd', Toggle_diagnostics, opts)

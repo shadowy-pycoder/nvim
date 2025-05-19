@@ -6,7 +6,7 @@ global.loaded_netrwPlugin = 1
 
 -- Editor options
 
-o.guicursor = ""
+o.guicursor = ''
 o.number = true -- Print the line number in front of each line
 o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
 o.clipboard = 'unnamedplus' -- uses the clipboard register for all operations except yank.
@@ -39,4 +39,4 @@ o.undofile = true -- Save undo history (default: false)
 o.backup = false -- Creates a backup file (default: false)
 o.writebackup = false -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited (default: true)
 o.swapfile = false -- Creates a swapfile (default: true)
-o.fillchars = {eob = " "}
+o.fillchars = { eob = ' ' }
