@@ -21,6 +21,18 @@ return {
         shfmt = {
           prepend_args = { '-i', '4' },
         },
+        ruff_format = {
+          prepend_args = {
+            '--config',
+            'format.quote-style="single"',
+            '--config',
+            'format.skip-magic-trailing-comma=false',
+            '--config',
+            'format.line-ending="auto"',
+            '--config',
+            'line-length=120',
+          },
+        },
       },
       format_on_save = function(bufnr)
         if vim.b.large_buf then
@@ -34,4 +46,3 @@ return {
     })
   end,
 }
-
