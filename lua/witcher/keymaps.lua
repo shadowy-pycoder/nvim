@@ -26,7 +26,9 @@ else
   vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 end
 --vim.keymap.set('n', 'G', 'Gzz', opts)
-
+vim.keymap.set('n', 'Z', '<Nop>', opts)
+vim.keymap.set('n', 'ZZ', '<Nop>', opts)
+vim.keymap.set('n', 'ZQ', '<Nop>', opts)
 vim.keymap.set('n', 'J', 'mzJ`z', opts)
 vim.keymap.set('n', 'n', 'nzzzv', opts)
 vim.keymap.set('n', 'N', 'Nzzzv', opts)
