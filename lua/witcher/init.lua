@@ -9,6 +9,12 @@ vim.g.loaded_netrwPlugin = 1
 -- https://github.com/NvChad/NvChad/issues/1907
 vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
 
+vim.filetype.add({
+  pattern = {
+    ['.*%.yaml%.dist'] = 'yaml',
+  },
+})
+
 autocmd('TextYankPost', {
   group = yank_group,
   pattern = '*',
@@ -95,17 +101,16 @@ autocmd({ 'VimEnter', 'VimResized' }, {
   end,
 })
 
-
--- icons for diagnostic messages 
+-- icons for diagnostic messages
 -- https://www.reddit.com/r/neovim/comments/1ai7xx1/lsp_diagnostics_character_change/
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/diagnostics/config.lua
 vim.diagnostic.config({
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "󰅚 ",
-      [vim.diagnostic.severity.WARN] = "󰀪 ",
-      [vim.diagnostic.severity.HINT] = "󰌶 ",
-      [vim.diagnostic.severity.INFO] = "󰋽 ",
+      [vim.diagnostic.severity.ERROR] = '󰅚 ',
+      [vim.diagnostic.severity.WARN] = '󰀪 ',
+      [vim.diagnostic.severity.HINT] = '󰌶 ',
+      [vim.diagnostic.severity.INFO] = '󰋽 ',
     },
   },
 })

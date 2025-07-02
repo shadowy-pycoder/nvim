@@ -7,6 +7,7 @@ return {
 
     conform.setup({
       formatters_by_ft = {
+        ['*'] = { 'trim_whitespace' },
         python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
@@ -31,6 +32,29 @@ return {
             'format.line-ending="auto"',
             '--config',
             'line-length=120',
+          },
+        },
+        prettier = {
+          options = {
+            ft_parsers = {
+              --     javascript = "babel",
+              --     javascriptreact = "babel",
+              --     typescript = "typescript",
+              --     typescriptreact = "typescript",
+              --     vue = "vue",
+              --     css = "css",
+              --     scss = "scss",
+              --     less = "less",
+              --     html = "html",
+              --     json = "json",
+              --     jsonc = "json",
+              --     yaml = "yaml",
+              --     markdown = "markdown",
+              --     ["markdown.mdx"] = "mdx",
+              --     graphql = "graphql",
+              --     handlebars = "glimmer",
+              yaml = 'yaml',
+            },
           },
         },
       },
