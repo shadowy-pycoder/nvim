@@ -17,6 +17,7 @@ return {
         json = { 'prettier' },
         yaml = { 'prettier' },
         markdown = { 'prettier' },
+        go = { 'golines' },
       },
       formatters = {
         shfmt = {
@@ -56,6 +57,13 @@ return {
               yaml = 'yaml',
             },
           },
+        },
+        golines = {
+          command = 'golines',
+          args = {
+            '--max-len=130',
+          },
+          stdin = true,
         },
       },
       format_on_save = function(bufnr)
