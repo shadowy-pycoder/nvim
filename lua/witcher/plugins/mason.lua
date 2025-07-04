@@ -14,7 +14,6 @@ return {
       -- start
       ensure_installed = {
         'shellcheck',
-        'shfmt',
         'prettier', -- ts/js formatter
         'stylua', -- lua formatter
         'shfmt', -- Shell formatter
