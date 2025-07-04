@@ -18,6 +18,7 @@ return {
         'ruff', -- Python linter and formatter
         'mypy', -- Python type checker
         'golines',
+        'gofumpt',
       },
 
       -- if set to true this will check each tool for updates. If updates

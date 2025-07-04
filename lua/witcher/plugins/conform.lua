@@ -17,7 +17,7 @@ return {
         json = { 'prettier' },
         yaml = { 'prettier' },
         markdown = { 'prettier' },
-        go = { 'golines' },
+        go = { 'gofumpt', 'golines' },
       },
       formatters = {
         shfmt = {
