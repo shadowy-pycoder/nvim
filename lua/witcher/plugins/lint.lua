@@ -47,7 +47,7 @@ return {
     }
 
     lint.linters_by_ft = {
-      python = { 'ruff', 'mypy' },
+      python = { 'mypy' },
       sh = { 'shellcheck' },
       makefile = { 'checkmake' },
     }

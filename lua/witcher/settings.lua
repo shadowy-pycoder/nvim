@@ -42,3 +42,4 @@ o.writebackup = false -- If a file is being edited by another program (or was wr
 o.swapfile = false -- Creates a swapfile (default: true)
 o.fillchars = { eob = ' ' }
 o.fileformats = 'unix,dos'
+o.winborder = 'rounded'

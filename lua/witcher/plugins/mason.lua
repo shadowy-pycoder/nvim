@@ -1,7 +1,11 @@
 return {
   'WhoIsSethDaniel/mason-tool-installer.nvim',
   enabled = true,
+  dependencies = {
+    { 'mason-org/mason.nvim' },
+  },
   config = function()
+    require('mason').setup()
     local mason_tool_installer = require('mason-tool-installer')
 
     mason_tool_installer.setup({
@@ -19,6 +23,11 @@ return {
         'mypy', -- Python type checker
         'golines',
         'gofumpt',
+        'lua-language-server',
+        'python-lsp-server',
+        'gopls',
+        'clangd',
+        'yaml-language-server',
       },
 
       -- if set to true this will check each tool for updates. If updates
@@ -55,9 +64,9 @@ return {
       -- module(s) (assuming any are installed) which is sometimes wanted when
       -- doing lazy loading.
       integrations = {
-        ['mason-lspconfig'] = true,
-        ['mason-null-ls'] = true,
-        ['mason-nvim-dap'] = true,
+        ['mason-lspconfig'] = false,
+        ['mason-null-ls'] = false,
+        ['mason-nvim-dap'] = false,
       },
     })
   end,

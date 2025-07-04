@@ -7,7 +7,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Prevent LSP from overwriting treesitter color settings
 -- https://github.com/NvChad/NvChad/issues/1907
-vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
+vim.hl.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
 
 vim.filetype.add({
   pattern = {
@@ -20,7 +20,7 @@ autocmd('TextYankPost', {
   pattern = '*',
   desc = 'Hightlight selection on yank',
   callback = function()
-    vim.highlight.on_yank({
+    vim.hl.on_yank({
       higroup = 'IncSearch',
       timeout = 50,
     })
@@ -86,31 +86,16 @@ autocmd({ 'BufReadPre' }, {
   pattern = '*',
 })
 
-autocmd({ 'VimEnter', 'VimResized' }, {
-  desc = 'Setup LSP hover window',
+-- https://github.com/nvim-telescope/telescope.nvim/issues/3436#issuecomment-2756267300
+autocmd("User", {
+  pattern = "TelescopeFindPre",
   callback = function()
-    local width = math.floor(vim.o.columns * 0.5)
-    local height = math.floor(vim.o.lines * 0.5)
-
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = 'rounded',
-      max_width = width,
-      max_height = height,
-      silent = true, -- Disable `No information available` notification
+    vim.opt_local.winborder = "none"
+    autocmd("WinLeave", {
+      once = true,
+      callback = function()
+        vim.opt_local.winborder = "rounded"
+      end,
     })
   end,
-})
-
--- icons for diagnostic messages
--- https://www.reddit.com/r/neovim/comments/1ai7xx1/lsp_diagnostics_character_change/
--- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/diagnostics/config.lua
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '󰅚 ',
-      [vim.diagnostic.severity.WARN] = '󰀪 ',
-      [vim.diagnostic.severity.HINT] = '󰌶 ',
-      [vim.diagnostic.severity.INFO] = '󰋽 ',
-    },
-  },
 })
