@@ -48,7 +48,7 @@ autocmd('BufLeave', {
 autocmd('BufWritePre', {
   pattern = '*.go',
   callback = function()
-    local params = vim.lsp.util.make_range_params()
+    local params = vim.lsp.util.make_range_params(0, 'utf-16')
     params.context = { only = { 'source.organizeImports' } }
     -- buf_request_sync defaults to a 1000ms timeout. Depending on your
     -- machine and codebase, you may want longer. Add an additional
@@ -87,14 +87,14 @@ autocmd({ 'BufReadPre' }, {
 })
 
 -- https://github.com/nvim-telescope/telescope.nvim/issues/3436#issuecomment-2756267300
-autocmd("User", {
-  pattern = "TelescopeFindPre",
+autocmd('User', {
+  pattern = 'TelescopeFindPre',
   callback = function()
-    vim.opt_local.winborder = "none"
-    autocmd("WinLeave", {
+    vim.opt_local.winborder = 'none'
+    autocmd('WinLeave', {
       once = true,
       callback = function()
-        vim.opt_local.winborder = "rounded"
+        vim.opt_local.winborder = 'rounded'
       end,
     })
   end,

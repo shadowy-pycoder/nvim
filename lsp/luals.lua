@@ -11,12 +11,20 @@ return {
     'selene.yml',
     '.git',
   },
-  Lua = {
-    format = {
-      enable = false,
-    },
-    diagnostics = {
-      globals = { 'vim', 'it', 'describe', 'before_each', 'after_each' },
+  settings = {
+    Lua = {
+      format = {
+        enable = false,
+      },
+      diagnostics = {
+        globals = { 'vim', 'require' },
+      },
+      runtime = {
+        version = 'LuaJIT',
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+      },
     },
   },
 }
