@@ -39,6 +39,9 @@ return {
         'toml',
         'sql',
         'comment',
+        'gomod',
+        'gowork',
+        'gosum',
       },
       rainbow = {
         enable = true,
