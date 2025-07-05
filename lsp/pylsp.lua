@@ -9,7 +9,6 @@ return {
     'Pipfile',
     '.git',
   },
-
   settings = {
     pylsp = {
       plugins = {

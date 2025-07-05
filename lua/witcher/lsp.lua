@@ -23,7 +23,6 @@ local capabilities = {
       lineFoldingOnly = true,
     },
   },
-  positionEncoding = { 'utf-8' },
 }
 
 capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
