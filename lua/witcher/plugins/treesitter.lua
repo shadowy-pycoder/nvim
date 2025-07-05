@@ -4,6 +4,7 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   build = ':TSUpdate',
   branch = 'master',
+  lazy = false,
   dependencies = {
     'windwp/nvim-ts-autotag',
   },
