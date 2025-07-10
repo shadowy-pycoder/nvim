@@ -19,6 +19,7 @@ return {
     })
 
     lint.linters.mypy = {
+      name = 'mypy',
       cmd = 'mypy',
       stdin = false,
       stream = 'stdout',

@@ -62,4 +62,5 @@ vim.lsp.enable({
   'clangd',
   'ruff',
   'yamlls',
+  'tombi',
 })

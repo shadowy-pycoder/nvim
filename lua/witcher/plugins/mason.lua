@@ -27,6 +27,7 @@ return {
         'gopls',
         'clangd',
         'yaml-language-server',
+        'tombi', -- toml lsp/formatter/linter
       },
 
       -- if set to true this will check each tool for updates. If updates
