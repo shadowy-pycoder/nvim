@@ -121,7 +121,7 @@ vim.g['diagnostics_active'] = true
 function Toggle_diagnostics()
   if vim.g.diagnostics_active then
     vim.g.diagnostics_active = false
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
   else
     vim.g.diagnostics_active = true
     vim.diagnostic.enable()
@@ -132,6 +132,3 @@ vim.keymap.set('n', '<leader>dd', Toggle_diagnostics, opts)
 
 -- open diagnostics in a float window
 vim.keymap.set('n', '<leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-
-vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
