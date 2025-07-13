@@ -80,6 +80,7 @@ autocmd({ 'BufReadPre' }, {
       vim.cmd('syntax off')
     else
       vim.b.large_buf = false
+      vim.cmd('syntax on')
     end
   end,
   group = aug,
