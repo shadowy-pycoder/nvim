@@ -2,9 +2,6 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- Prevent LSP from overwriting treesitter color settings
 -- https://github.com/NvChad/NvChad/issues/1907
 vim.hl.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
