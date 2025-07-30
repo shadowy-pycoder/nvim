@@ -70,7 +70,7 @@ return {
         if vim.b.large_buf then
           return
         end
-        return { timeout_ms = 500, lsp_format = 'fallback', async = false, quiet = false }
+        return { timeout_ms = 1000, lsp_format = 'fallback', async = false, quiet = false }
       end,
       format_after_save = {
         lsp_format = 'fallback',

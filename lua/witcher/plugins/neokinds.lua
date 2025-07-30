@@ -1,5 +1,5 @@
 return {
-  'BrunoCiccarino/neokinds',
+  'thebigcicca/neokinds',
   config = function()
     local neokinds = require('neokinds')
     neokinds.setup({
@@ -22,7 +22,7 @@ return {
         Property = '󰜢 ',
         Unit = ' ',
         Value = ' ',
-        Enum = '練',
+        Enum = '',
         Keyword = '󰌋',
         Snippet = '',
         Color = ' ',
