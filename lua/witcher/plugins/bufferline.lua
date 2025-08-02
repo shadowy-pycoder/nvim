@@ -4,6 +4,7 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
     'moll/vim-bbye',
     'nvim-tree/nvim-web-devicons',
   },
+  enabled = true,
   config = function()
     require('bufferline').setup({
       options = {
@@ -27,7 +28,8 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
         show_buffer_close_icons = true,
         show_close_icon = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        separator_style = { '│', '│' }, -- | "thick" | "thin" | { 'any', 'any' },
+        separator_style = { '.', '.' },
+        --        { '│', '│' }, -- | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = true,
         always_show_bufferline = true,
         show_tab_indicators = false,
@@ -52,12 +54,27 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
       },
       highlights = {
         separator = {
-          fg = '#434C5E',
+          -- fg = '#434C5E',
+          fg = '#1f1f1f',
+          bg = '#1f1f1f',
+        },
+        separator_selected = {
+          fg = '#1f1f1f',
+          bg = '#1f1f1f',
+        },
+        separator_visible = {
+          fg = '#1f1f1f',
+          bg = '#1f1f1f',
+        },
+        tab_separator = {
+          -- fg = '#434C5E',
+          fg = '#1f1f1f',
           bg = '#1f1f1f',
         },
         offset_separator = {
           --fg = '#434C5E',
           bg = '#1f1f1f',
+          fg = '#1f1f1f',
         },
         buffer_selected = {
           fg = '#ffffff',
@@ -66,15 +83,19 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
         },
         modified = {
           fg = '#D7BA7D',
+          bg = '#1f1f1f',
         },
         modified_visible = {
           fg = '#D7BA7D',
+          bg = '#1f1f1f',
         },
         modified_selected = {
           fg = '#D7BA7D',
+          bg = '#1f1f1f',
         },
         buffer_visible = {
           fg = '#9d9d9d',
+          bg = '#1f1f1f',
         },
         background = {
           fg = '#9d9d9d',
