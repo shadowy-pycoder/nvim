@@ -61,7 +61,7 @@ return {
         golines = {
           command = 'golines',
           args = {
-            '--max-len=130',
+            '--max-len=150',
           },
           stdin = true,
         },

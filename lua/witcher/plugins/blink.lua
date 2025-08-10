@@ -27,7 +27,7 @@ return {
           },
         },
         accept = {
-          dot_repeat = false,
+          dot_repeat = true,
           create_undo_point = true,
           auto_brackets = {
             enabled = true,
