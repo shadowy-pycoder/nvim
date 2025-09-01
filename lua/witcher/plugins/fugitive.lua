@@ -1,8 +1,6 @@
 return {
   'tpope/vim-fugitive',
   config = function()
-    vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-
     local augroup = vim.api.nvim_create_augroup('Fugitive', {})
 
     local autocmd = vim.api.nvim_create_autocmd
@@ -27,9 +25,10 @@ return {
         -- vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
       end,
     })
+    vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 
+    vim.keymap.set('n', '<leader>gm', '<cmd>Gvdiffsplit!<CR>')
     vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>')
     vim.keymap.set('n', 'gh', '<cmd>diffget //3<CR>')
   end,
 }
-
