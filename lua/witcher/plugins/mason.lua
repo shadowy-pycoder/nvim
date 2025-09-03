@@ -28,6 +28,7 @@ return {
         'clangd',
         'yaml-language-server',
         'tombi', -- toml lsp/formatter/linter
+        'clang-format',
       },
 
       -- if set to true this will check each tool for updates. If updates

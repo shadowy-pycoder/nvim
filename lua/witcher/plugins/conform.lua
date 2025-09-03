@@ -19,6 +19,8 @@ return {
         markdown = { 'prettier' },
         go = { 'gofumpt', 'golines' },
         toml = { 'tombi' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
       },
       formatters = {
         shfmt = {
