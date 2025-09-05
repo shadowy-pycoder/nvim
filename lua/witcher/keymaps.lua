@@ -61,7 +61,10 @@ vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)
 
 --Run Python shell with one command
-vim.keymap.set('n', '<leader>tp', ':split<CR>:resize 10<CR>:term python3.13<CR>', opts)
+vim.keymap.set('n', '<leader>tp', function()
+  vim.g._no_venv_next_term = true
+  vim.cmd('split | resize 10 | term python3.13')
+end, opts)
 
 --Open terminal in the current window
 vim.keymap.set('n', '<leader>tt', '<cmd>term<CR>', opts)

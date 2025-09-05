@@ -100,6 +100,10 @@ autocmd('User', {
 vim.api.nvim_create_autocmd('TermOpen', {
   pattern = '*',
   callback = function()
+    if vim.g._no_venv_next_term then
+      vim.g._no_venv_next_term = false
+      return
+    end
     local clients = vim.lsp.get_clients({ name = 'pylsp' })
     if #clients == 0 then
       return
