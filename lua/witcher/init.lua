@@ -96,3 +96,32 @@ autocmd('User', {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  callback = function()
+    local clients = vim.lsp.get_clients({ name = 'pylsp' })
+    if #clients == 0 then
+      return
+    end
+
+    local root_dir = clients[1].config.root_dir
+    if not root_dir or root_dir == '' then
+      return
+    end
+
+    local venv_path
+    if vim.fn.isdirectory(root_dir .. '/.venv') == 1 then
+      venv_path = root_dir .. '/.venv'
+    elseif vim.fn.isdirectory(root_dir .. '/venv') == 1 then
+      venv_path = root_dir .. '/venv'
+    else
+      return
+    end
+
+    local activate = venv_path .. '/bin/activate'
+    if vim.fn.filereadable(activate) == 1 then
+      vim.fn.chansend(vim.b.terminal_job_id, 'source ' .. activate .. '\n')
+    end
+  end,
+})
