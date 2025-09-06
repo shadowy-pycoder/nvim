@@ -135,3 +135,27 @@ vim.keymap.set('n', '<leader>dd', Toggle_diagnostics, opts)
 
 -- open diagnostics in a float window
 vim.keymap.set('n', '<leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
+-- Diff current file with staged version in Meld (async)
+vim.keymap.set('n', '<leader>gm', function()
+  vim.cmd('noautocmd write')
+  vim.fn.jobstart({ 'git', 'difftool', vim.fn.expand('%') }, {
+    on_exit = function()
+      vim.schedule(function()
+        vim.cmd('checktime')
+      end)
+    end,
+  })
+end, opts)
+
+-- Launch Meld as mergetool (async)
+vim.keymap.set('n', '<leader>gM', function()
+  vim.cmd('noautocmd write')
+  vim.fn.jobstart({ 'git', 'mergetool', vim.fn.expand('%') }, {
+    on_exit = function()
+      vim.schedule(function()
+        vim.cmd('checktime')
+      end)
+    end,
+  })
+end, opts)
