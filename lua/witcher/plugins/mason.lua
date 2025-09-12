@@ -28,7 +28,7 @@ return {
         'yaml-language-server',
         'tombi', -- toml lsp/formatter/linter
         'clang-format',
-        'basedpyrigt',
+        'basedpyright',
       },
 
       -- if set to true this will check each tool for updates. If updates
