@@ -17,23 +17,33 @@ return {
       col_offset = -1,
       use_range = false,
     })
+    local function get_mypy_cmd()
+      local venv = os.getenv('VIRTUAL_ENV') or os.getenv('CONDA_PREFIX')
+      if venv and vim.fn.executable(venv .. '/bin/mypy') == 1 then
+        return venv .. '/bin/mypy'
+      end
+
+      local mason_mypy = vim.fn.stdpath('data') .. '/mason/bin/mypy'
+      if vim.fn.executable(mason_mypy) == 1 then
+        return mason_mypy
+      end
+
+      return 'mypy'
+    end
 
     lint.linters.mypy = {
       name = 'mypy',
-      cmd = 'mypy',
+      cmd = get_mypy_cmd(),
       stdin = false,
       stream = 'stdout',
       ignore_exitcode = true,
       args = (function()
-        local venv = os.getenv('VIRTUAL_ENV') or os.getenv('CONDA_PREFIX') or '/usr'
         return {
           '--show-column-numbers',
           '--hide-error-context',
           '--no-color-output',
           '--no-error-summary',
           '--no-pretty',
-          '--python-executable',
-          venv .. '/bin/python3',
         }
       end)(),
 
