@@ -40,6 +40,7 @@ return {
         useLibraryCodeForTypes = true,
         diagnosticMode = 'openFilesOnly',
         disableOrganizeImports = true,
+        typeCheckingMode = 'all',
         diagnosticSeverityOverrides = {
           reportUnusedCallResult = 'none',
           reportExplicitAny = 'none',
@@ -52,6 +53,7 @@ return {
           reportArgumentType = 'none',
           reportGeneralTypeIssues = 'none',
           reportUnannotatedClassAttribute = 'none',
+          reportMissingTypeStubs = 'none',
         },
       },
     },

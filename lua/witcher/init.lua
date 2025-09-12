@@ -104,12 +104,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
       vim.g._no_venv_next_term = false
       return
     end
-    local clients = vim.lsp.get_clients({ name = 'pylsp' })
-    if #clients == 0 then
-      return
-    end
-
-    local root_dir = clients[1].config.root_dir
+    local root_dir = vim.fn.getcwd()
     if not root_dir or root_dir == '' then
       return
     end
