@@ -23,12 +23,12 @@ return {
         'golines',
         'gofumpt',
         'lua-language-server',
-        'python-lsp-server',
         'gopls',
         'clangd',
         'yaml-language-server',
         'tombi', -- toml lsp/formatter/linter
         'clang-format',
+        'basedpyrigt',
       },
 
       -- if set to true this will check each tool for updates. If updates

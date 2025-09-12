@@ -57,7 +57,7 @@ vim.diagnostic.config({
 
 vim.lsp.enable({
   'luals',
-  'pylsp',
+  'basedpyright',
   'gopls',
   'clangd',
   'ruff',
