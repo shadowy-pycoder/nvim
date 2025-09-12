@@ -54,6 +54,8 @@ return {
           reportGeneralTypeIssues = 'none',
           reportUnannotatedClassAttribute = 'none',
           reportMissingTypeStubs = 'none',
+          reportUnusedVariable = 'none',
+          reportUndefinedVariable = 'none',
         },
       },
     },
