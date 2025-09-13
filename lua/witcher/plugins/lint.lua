@@ -38,7 +38,25 @@ return {
       stream = 'stdout',
       ignore_exitcode = true,
       args = (function()
+        local venvs = { '.venv', 'venv' }
+        local cwd = vim.fn.getcwd()
+        local python = nil
+
+        for _, v in ipairs(venvs) do
+          local candidate = cwd .. '/' .. v .. '/bin/python'
+          if vim.fn.filereadable(candidate) == 1 then
+            python = candidate
+            break
+          end
+        end
+
+        if not python then
+          python = vim.fn.exepath('python3') or 'python3'
+        end
+
         return {
+          '--python-executable',
+          python,
           '--show-column-numbers',
           '--hide-error-context',
           '--no-color-output',
@@ -46,7 +64,6 @@ return {
           '--no-pretty',
         }
       end)(),
-
       parser = function(output, bufnr, cwd)
         local diagnostics = base_parser(output, bufnr, cwd)
         for _, d in ipairs(diagnostics) do

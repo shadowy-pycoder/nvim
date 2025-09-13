@@ -57,6 +57,7 @@ return {
           reportMissingTypeStubs = 'none',
           reportUnusedVariable = 'none',
           reportUndefinedVariable = 'none',
+          reportUnusedImport = 'none',
         },
       },
       exclude = {
