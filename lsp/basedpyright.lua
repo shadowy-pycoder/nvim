@@ -58,6 +58,7 @@ return {
           reportUnusedVariable = 'none',
           reportUndefinedVariable = 'none',
           reportUnusedImport = 'none',
+          reportImplicitOverride = 'none',
         },
       },
       exclude = {
