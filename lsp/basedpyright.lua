@@ -42,6 +42,7 @@ return {
         disableOrganizeImports = true,
         typeCheckingMode = 'all',
         enableTypeIgnoreComments = true,
+        useTypingExtensions = true,
         diagnosticSeverityOverrides = {
           reportUnusedCallResult = 'none',
           reportExplicitAny = 'none',
@@ -59,6 +60,7 @@ return {
           reportUndefinedVariable = 'none',
           reportUnusedImport = 'none',
           reportImplicitOverride = 'none',
+          reportCallInDefaultInitializer = 'none',
         },
       },
       exclude = {

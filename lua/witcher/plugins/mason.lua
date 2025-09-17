@@ -19,7 +19,7 @@ return {
         'shfmt', -- Shell formatter
         'checkmake', -- linter for Makefiles
         'ruff', -- Python linter and formatter
-        'mypy', -- Python type checker
+        { 'mypy', version = '1.14.1' }, -- Python type checker
         'golines',
         'gofumpt',
         'lua-language-server',
