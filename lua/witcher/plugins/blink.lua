@@ -82,7 +82,9 @@ return {
       },
       fuzzy = {
         implementation = 'rust',
-        use_frecency = false,
+        frecency = {
+          enabled = false,
+        },
         use_proximity = false,
         max_typos = function(_)
           return 0
