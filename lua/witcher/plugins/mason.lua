@@ -29,6 +29,7 @@ return {
         'tombi', -- toml lsp/formatter/linter
         'clang-format',
         'basedpyright',
+        'typescript-language-server',
       },
 
       -- if set to true this will check each tool for updates. If updates

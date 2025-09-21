@@ -2,6 +2,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
     local opts = { buffer = event.buf }
+    if vim.b.large_buf then
+      vim.schedule(function()
+        vim.notify('LSP disabled for large files', vim.log.levels.WARN)
+      end)
+      ---@diagnostic disable-next-line:param-type-mismatch
+      vim.lsp.get_client_by_id(event.data.client_id).stop(true)
+      return
+    end
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -63,4 +71,5 @@ vim.lsp.enable({
   'ruff',
   'yamlls',
   'tombi',
+  'ts',
 })
