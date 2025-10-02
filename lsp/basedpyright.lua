@@ -36,6 +36,7 @@ return {
   settings = {
     basedpyright = {
       analysis = {
+        fileEnumerationTimeout = 5,
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = 'openFilesOnly',
@@ -117,11 +118,25 @@ return {
       },
     },
   },
-  on_attach = function(_, bufnr)
+  on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, 'LspPyrightSetPythonPath', set_python_path, {
       desc = 'Reconfigure basedpyright with the provided python path',
       nargs = 1,
       complete = 'file',
     })
+    local ft = vim.bo[bufnr].filetype
+    local name = vim.api.nvim_buf_get_name(bufnr)
+    if ft == 'fugitive' or vim.bo[bufnr].buftype == 'nowrite' then
+      vim.schedule(function()
+        vim.lsp.stop_client(client.id)
+      end)
+      return
+    end
+    if name:match('^fugitive://') then
+      vim.schedule(function()
+        vim.lsp.stop_client(client.id)
+      end)
+      return
+    end
   end,
 }
