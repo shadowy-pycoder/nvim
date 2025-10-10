@@ -1,4 +1,4 @@
--- https://www.reddit.com/r/neovim/comments/1707ppd/comment/k3jo5oi/
+-- https://www.reddit.com/r/neovim/comments/1708ppd/comment/k3jo5oi/
 local function lazy(keys)
   keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
   return function()
@@ -34,7 +34,8 @@ vim.keymap.set('n', 'n', 'nzzzv', opts)
 vim.keymap.set('n', 'N', 'Nzzzv', opts)
 
 --Switch windows
-vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
+-- vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
+vim.keymap.set('n', '<BS>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
@@ -55,7 +56,7 @@ vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>', opts)
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>c', ':bdelete!<CR>', opts) -- close buffer
-vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
+-- vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 --Open terminal at the bottom in the current directory
 vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)

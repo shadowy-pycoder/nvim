@@ -72,4 +72,5 @@ vim.lsp.enable({
   'yamlls',
   'tombi',
   'ts',
+  'asm',
 })

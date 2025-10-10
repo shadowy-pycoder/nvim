@@ -42,6 +42,7 @@ return {
         'gomod',
         'gowork',
         'gosum',
+        'asm',
       },
       rainbow = {
         enable = true,

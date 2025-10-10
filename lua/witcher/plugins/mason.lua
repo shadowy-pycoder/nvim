@@ -30,6 +30,7 @@ return {
         'clang-format',
         'basedpyright',
         'typescript-language-server',
+        'asm-lsp',
       },
 
       -- if set to true this will check each tool for updates. If updates

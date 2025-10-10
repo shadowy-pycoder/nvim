@@ -1,7 +1,7 @@
 return {
   'echasnovski/mini.pairs',
   version = false,
-  enabled = false,
+  enabled = true,
   config = function()
     require('mini.pairs').setup({
       -- In which modes mappings from this `config` should be created

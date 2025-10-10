@@ -4,7 +4,7 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
     'moll/vim-bbye',
     'nvim-tree/nvim-web-devicons',
   },
-  enabled = true,
+  enabled = false,
   config = function()
     require('bufferline').setup({
       options = {
