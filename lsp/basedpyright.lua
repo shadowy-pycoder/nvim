@@ -63,6 +63,7 @@ return {
           reportImplicitOverride = 'none',
           reportCallInDefaultInitializer = 'none',
           reportOptionalMemberAccess = 'none',
+          reportImportCycles = 'none',
         },
       },
       exclude = {

@@ -64,7 +64,7 @@ vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)
 --Run Python shell with one command
 vim.keymap.set('n', '<leader>tp', function()
   vim.g._no_venv_next_term = true
-  vim.cmd('split | resize 10 | term python3.13')
+  vim.cmd('split | resize 10 | term python3.14')
 end, opts)
 
 --Open terminal in the current window
@@ -98,6 +98,9 @@ vim.keymap.set('i', '<A-j>', '<Down>', opts)
 vim.keymap.set('i', '<A-k>', '<Up>', opts)
 vim.keymap.set('i', '<A-l>', '<Right>', opts)
 
+-- Paste
+vim.keymap.set('i', '<A-p>', '<Esc>"+pa', opts)
+
 --Visual mode
 --Move selected lines
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
@@ -117,7 +120,7 @@ vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<CR>', opts)
 --vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<CR>") -- rather keep terminal shortcuts for clearing
 
 --close terminal
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('t', '<A-Esc>', '<C-\\><C-n>')
 
 -- Diagnostics toggle
 -- https://www.reddit.com/r/neovim/comments/1ae6iwm/disable_lsp_diagnostics/
