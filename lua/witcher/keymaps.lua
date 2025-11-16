@@ -68,7 +68,21 @@ vim.keymap.set('n', '<leader>tp', function()
 end, opts)
 
 --Open terminal in the current window
-vim.keymap.set('n', '<leader>tt', '<cmd>term<CR>', opts)
+vim.keymap.set('n', '<leader>tn', '<cmd>term<CR>', opts)
+
+--Open existing terminal or new one
+vim.keymap.set('n', '<leader>tt', function()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) then
+      local name = vim.api.nvim_buf_get_name(buf)
+      if name:match('term') then
+        vim.api.nvim_set_current_buf(buf)
+        return
+      end
+    end
+  end
+  vim.cmd('term')
+end, { desc = 'Jump to existing terminal or open new one' })
 
 --Save current file
 vim.keymap.set('n', '<leader>ww', '<cmd>w<CR>', opts)
