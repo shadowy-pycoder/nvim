@@ -10,6 +10,9 @@ vim.filetype.add({
   pattern = {
     ['.*%.yaml%.dist'] = 'yaml',
   },
+  extension = {
+    h = 'c',
+  },
 })
 
 autocmd('TextYankPost', {
@@ -67,7 +70,7 @@ autocmd('BufWritePre', {
 
 -- https://www.reddit.com/r/neovim/comments/z85s1l/disable_lsp_for_very_large_files/
 local aug = vim.api.nvim_create_augroup('buf_large', { clear = true })
-local max_filesize = 1000 * 1024 -- 1000 KB
+local max_filesize = 3000 * 1024 -- 3000 KB
 
 autocmd({ 'BufReadPre', 'BufEnter' }, {
   callback = function()

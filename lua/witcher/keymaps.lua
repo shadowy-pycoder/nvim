@@ -53,8 +53,21 @@ vim.keymap.set('n', '<A-k>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>', opts)
 
 -- Buffers
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
+vim.keymap.set('n', '<Tab>', function()
+  local cur_ft = vim.bo.filetype
+  if cur_ft == 'NvimTree' then
+    vim.cmd('wincmd p')
+  end
+  vim.cmd('bnext')
+end, { desc = 'Go to next buffer', noremap = true, silent = true })
+
+vim.keymap.set('n', '<S-Tab>', function()
+  local cur_ft = vim.bo.filetype
+  if cur_ft == 'NvimTree' then
+    vim.cmd('wincmd p')
+  end
+  vim.cmd('bprev')
+end, { desc = 'Go to previous buffer', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>c', ':bdelete!<CR>', opts) -- close buffer
 -- vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
@@ -72,6 +85,10 @@ vim.keymap.set('n', '<leader>tn', '<cmd>term<CR>', opts)
 
 --Open existing terminal or new one
 vim.keymap.set('n', '<leader>tt', function()
+  local cur_ft = vim.bo.filetype
+  if cur_ft == 'NvimTree' then
+    vim.cmd('wincmd p')
+  end
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_buf_is_loaded(buf) then
       local name = vim.api.nvim_buf_get_name(buf)
@@ -82,7 +99,7 @@ vim.keymap.set('n', '<leader>tt', function()
     end
   end
   vim.cmd('term')
-end, { desc = 'Jump to existing terminal or open new one' })
+end, { desc = 'Jump to existing terminal or open new one', noremap = true, silent = true })
 
 --Save current file
 vim.keymap.set('n', '<leader>ww', '<cmd>w<CR>', opts)
