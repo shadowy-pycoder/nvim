@@ -12,7 +12,7 @@ return {
     -- { "m00qek/baleia.nvim", tag = "v1.3.0" },
   },
   config = function()
-    vim.keymap.set('n', '<leader>mc', vim.cmd.Compile, { desc = 'Compile command' })
+    vim.keymap.set('n', '<leader>mm', vim.cmd.Compile, { desc = 'Compile command' })
     vim.keymap.set('n', '<leader>mr', vim.cmd.Recompile, { desc = 'Recompile previous command' })
     vim.keymap.set('n', '<leader>mn', vim.cmd.NextError, { desc = 'Go to next compilation error' })
     vim.keymap.set('n', '<leader>mp', vim.cmd.NextError, { desc = 'Go to previous compilation error' })

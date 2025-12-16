@@ -47,8 +47,9 @@ return {
       ['gq'] = { 'n' },
       ['gw'] = { 'n' },
       ['g?'] = { 'n' },
+      ['<C-N>'] = { 'n' },
     },
-    restriction_mode = 'block', -- block or hint
+    restriction_mode = 'hint', -- block or hint
     restricted_keys = {
       ['h'] = { 'n', 'x' },
       ['j'] = { 'n', 'x' },
@@ -58,7 +59,6 @@ return {
       ['gj'] = { 'n', 'x' },
       ['gk'] = { 'n', 'x' },
       ['<C-M>'] = { 'n', 'x' },
-      ['<C-N>'] = { 'n', 'x' },
       ['<C-P>'] = { 'n', 'x' },
     },
     disabled_keys = {
@@ -100,6 +100,7 @@ return {
       ['trouble'] = true,
       ['VoltWindow'] = true,
       ['undotree'] = true,
+      ['compilation'] = true,
     },
     ui = {
       enter = true,

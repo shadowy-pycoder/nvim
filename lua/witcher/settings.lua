@@ -42,5 +42,5 @@ o.backup = false -- Creates a backup file (default: false)
 o.writebackup = false -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited (default: true)
 o.swapfile = false -- Creates a swapfile (default: true)
 o.fillchars = { eob = ' ' }
-o.fileformats = 'unix,dos'
+o.fileformats = { 'unix', 'mac', 'dos' }
 o.winborder = 'rounded'

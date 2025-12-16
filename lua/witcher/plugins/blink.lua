@@ -7,7 +7,13 @@ return {
   config = function()
     require('blink.cmp').setup({
       cmdline = {
-        enabled = false,
+        enabled = true,
+        keymap = {
+          -- recommended, as the default keymap will only show and select the next item
+          ['<Tab>'] = { 'show', 'accept' },
+        },
+        completion = { menu = { auto_show = true } },
+        sources = { 'buffer', 'cmdline' , 'path'},
       },
       completion = {
         documentation = {
@@ -74,6 +80,13 @@ return {
         providers = {
           buffer = {
             enabled = true,
+            opts = {
+              get_bufnrs = function()
+                return vim.tbl_filter(function(bufnr)
+                  return vim.bo[bufnr].buftype == ''
+                end, vim.api.nvim_list_bufs())
+              end,
+            },
           },
           snippets = {
             enabled = false,
