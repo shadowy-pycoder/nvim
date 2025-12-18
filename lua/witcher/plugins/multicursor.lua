@@ -10,27 +10,27 @@ return {
       local set = vim.keymap.set
 
       -- Add or skip cursor above/below the main cursor.
-      set({ 'n', 'x' }, '<leader>k', function()
+      set({ 'n', 'x' }, '<A-k>', function()
         mc.lineAddCursor(-1)
       end)
-      set({ 'n', 'x' }, '<leader>j', function()
+      set({ 'n', 'x' }, '<A-j>', function()
         mc.lineAddCursor(1)
       end)
-      set({ 'n', 'x' }, '<leader>sk', function()
+      set({ 'n', 'x' }, '<A-h>', function()
         mc.lineSkipCursor(-1)
       end)
-      set({ 'n', 'x' }, '<leader>sj', function()
+      set({ 'n', 'x' }, '<A-l>', function()
         mc.lineSkipCursor(1)
       end)
 
       -- Add or skip adding a new cursor by matching word/selection
-      set({ 'n', 'x' }, '<leader>n', function()
+      set({ 'n', 'x' }, '<A-n>', function()
         mc.matchAddCursor(1)
       end)
       -- set({ 'n', 'x' }, '<leader>s', function()
       --   mc.matchSkipCursor(1)
       -- end)
-      set({ 'n', 'x' }, '<leader>N', function()
+      set({ 'n', 'x' }, '<A-s>', function()
         mc.matchSkipCursor(1)
       end)
       -- set({ 'n', 'x' }, '<leader>S', function()
@@ -43,7 +43,7 @@ return {
       set('n', '<c-leftrelease>', mc.handleMouseRelease)
 
       -- Disable and enable cursors.
-      set({ 'n', 'x' }, '<c-q>', mc.toggleCursor)
+      set({ 'n', 'x' }, '<A-q>', mc.toggleCursor)
 
       -- Mappings defined in a keymap layer only apply when there are
       -- multiple cursors. This lets you have overlapping mappings.
@@ -53,7 +53,7 @@ return {
         layerSet({ 'n', 'x' }, '<right>', mc.nextCursor)
 
         -- Delete the main cursor.
-        layerSet({ 'n', 'x' }, '<leader>x', mc.deleteCursor)
+        layerSet({ 'n', 'x' }, '<A-x>', mc.deleteCursor)
 
         -- Enable and clear cursors using escape.
         layerSet('n', '<esc>', function()
@@ -61,6 +61,8 @@ return {
             mc.enableCursors()
           else
             mc.clearCursors()
+            vim.cmd('nohlsearch')
+            vim.cmd('redraw!')
           end
         end)
       end)

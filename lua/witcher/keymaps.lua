@@ -41,16 +41,43 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
 -- Window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>hn', '<C-w>s', opts) -- split window horizontally
-vim.keymap.set('n', '<leader>e', '<C-w>=', opts) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>x', ':close<CR>', opts) -- close current split window
+vim.keymap.set('n', '<leader>sv', '<C-w>v', opts) -- split window vertically
+vim.keymap.set('n', '<leader>sh', '<C-w>s', opts) -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
+vim.keymap.set('n', '<leader>xx', ':close<CR>', opts) -- close current split window
 
--- Resize windows with alt
-vim.keymap.set('n', '<A-h>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<A-j>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<A-k>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>', opts)
+function _G.resize_up()
+  local n = vim.v.count1
+  vim.cmd('resize +' .. (2 * n))
+end
+
+function _G.resize_down()
+  local n = vim.v.count1
+  vim.cmd('resize -' .. (2 * n))
+end
+
+function _G.resize_left()
+  local n = vim.v.count1
+  vim.cmd('vertical resize -' .. (2 * n))
+end
+
+function _G.resize_right()
+  local n = vim.v.count1
+  vim.cmd('vertical resize +' .. (2 * n))
+end
+
+local function resize_op(fn)
+  return function()
+    vim.o.operatorfunc = fn
+    return 'g@l'
+  end
+end
+
+-- Resize windows
+vim.keymap.set('n', '<leader>rh', resize_op('v:lua.resize_left'), { expr = true })
+vim.keymap.set('n', '<leader>rj', resize_op('v:lua.resize_down'), { expr = true })
+vim.keymap.set('n', '<leader>rk', resize_op('v:lua.resize_up'), { expr = true })
+vim.keymap.set('n', '<leader>rl', resize_op('v:lua.resize_right'), { expr = true })
 
 -- Buffers
 vim.keymap.set('n', '<Tab>', function()
@@ -68,7 +95,7 @@ vim.keymap.set('n', '<S-Tab>', function()
   end
   vim.cmd('bprev')
 end, { desc = 'Go to previous buffer', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>c', ':bdelete!<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>bd', ':bdelete!<CR>', opts) -- close buffer
 -- vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 --Open terminal at the bottom in the current directory
@@ -114,7 +141,7 @@ vim.keymap.set('n', '<leader>wc', '<cmd>q<CR>', opts)
 vim.keymap.set('n', 'x', '"_x', opts)
 
 -- clear highlighting
-vim.keymap.set('n', '<C-n>', '<cmd>noh<CR>', opts)
+vim.keymap.set('n', '<A-m>', '<cmd>noh<CR>', opts)
 
 -- nvim tree toggle
 vim.keymap.set('n', '<leader>E', '<cmd>NvimTreeToggle<CR>', opts)
@@ -173,6 +200,9 @@ vim.keymap.set('n', '<leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', op
 
 -- Diff current file with staged version in Meld (async)
 vim.keymap.set('n', '<leader>gm', function()
+  if vim.bo.buftype ~= '' then
+    return
+  end
   vim.cmd('noautocmd write')
   vim.fn.jobstart({ 'git', 'difftool', vim.fn.expand('%') }, {
     on_exit = function()
@@ -185,6 +215,9 @@ end, opts)
 
 -- Launch Meld as mergetool (async)
 vim.keymap.set('n', '<leader>gM', function()
+  if vim.bo.buftype ~= '' then
+    return
+  end
   vim.cmd('noautocmd write')
   vim.fn.jobstart({ 'git', 'mergetool', vim.fn.expand('%') }, {
     on_exit = function()
