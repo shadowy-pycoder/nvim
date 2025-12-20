@@ -100,7 +100,7 @@ autocmd('User', {
   end,
 })
 
-vim.api.nvim_create_autocmd('TermOpen', {
+autocmd('TermOpen', {
   pattern = '*',
   callback = function()
     if vim.g._no_venv_next_term then
