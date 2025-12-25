@@ -11,26 +11,44 @@ return {
 
       -- Add or skip cursor above/below the main cursor.
       set({ 'n', 'x' }, '<A-k>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
         mc.lineAddCursor(-1)
       end)
       set({ 'n', 'x' }, '<A-j>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
         mc.lineAddCursor(1)
       end)
       set({ 'n', 'x' }, '<A-h>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
         mc.lineSkipCursor(-1)
       end)
       set({ 'n', 'x' }, '<A-l>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
         mc.lineSkipCursor(1)
       end)
 
       -- Add or skip adding a new cursor by matching word/selection
       set({ 'n', 'x' }, '<A-n>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
         mc.matchAddCursor(1)
       end)
       -- set({ 'n', 'x' }, '<leader>s', function()
       --   mc.matchSkipCursor(1)
       -- end)
       set({ 'n', 'x' }, '<A-s>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
         mc.matchSkipCursor(1)
       end)
       -- set({ 'n', 'x' }, '<leader>S', function()
@@ -38,17 +56,26 @@ return {
       -- end)
 
       -- Add and remove cursors with control + left click.
-      set('n', '<c-leftmouse>', mc.handleMouse)
-      set('n', '<c-leftdrag>', mc.handleMouseDrag)
-      set('n', '<c-leftrelease>', mc.handleMouseRelease)
-
+      -- set('n', '<c-leftmouse>', mc.handleMouse)
+      -- set('n', '<c-leftdrag>', mc.handleMouseDrag)
+      -- set('n', '<c-leftrelease>', mc.handleMouseRelease)
+      --
       -- Disable and enable cursors.
-      set({ 'n', 'x' }, '<A-q>', mc.toggleCursor)
+
+      set({ 'n', 'x' }, '<A-q>', function()
+        if not vim.b.mc_allowed then
+          return
+        end
+        mc.toggleCursor()
+      end)
 
       -- Mappings defined in a keymap layer only apply when there are
       -- multiple cursors. This lets you have overlapping mappings.
       mc.addKeymapLayer(function(layerSet)
         -- Select a different cursor as the main one.
+        if not vim.b.mc_allowed then
+          return
+        end
         layerSet({ 'n', 'x' }, '<left>', mc.prevCursor)
         layerSet({ 'n', 'x' }, '<right>', mc.nextCursor)
 
