@@ -3,7 +3,7 @@ local o = vim.opt
 
 global.loaded_netrw = 1
 global.loaded_netrwPlugin = 1
-global.lazy_keys = true
+global.lazy_keys = false
 global._ts_force_sync_parsing = true -- async parsing causes highlight flickering for large files
 
 -- Editor options

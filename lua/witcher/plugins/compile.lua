@@ -15,14 +15,16 @@ return {
     vim.keymap.set('n', '<leader>mm', vim.cmd.Compile, { desc = 'Compile command' })
     vim.keymap.set('n', '<leader>mr', vim.cmd.Recompile, { desc = 'Recompile previous command' })
     vim.keymap.set('n', '<leader>mn', vim.cmd.NextError, { desc = 'Go to next compilation error' })
-    vim.keymap.set('n', '<leader>mp', vim.cmd.NextError, { desc = 'Go to previous compilation error' })
+    vim.keymap.set('n', '<leader>mp', vim.cmd.PrevError, { desc = 'Go to previous compilation error' })
     ---@type CompileModeOpts
     vim.g.compile_mode = {
       -- if you use something like `nvim-cmp` or `blink.cmp` for completion,
       -- set this to fix tab completion in command mode:
       input_word_completion = true,
       use_circular_error_navigation = true,
-      -- focus_compilation_buffer = true,
+      focus_compilation_buffer = true,
+      -- focus_beginning_compilation_buffer = true,
+      -- auto_scroll = true,
       -- auto_jump_to_first_error = true,
 
       -- to make `:Compile` replace special characters (e.g. `%`) in

@@ -22,8 +22,8 @@ if vim.g.lazy_keys then
   vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
   vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
 else
-  vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
-  vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+  vim.keymap.set('n', '<C-d>', '<cmd>normal! <C-d>zz<CR>', opts)
+  vim.keymap.set('n', '<C-u>', '<cmd>normal! <C-u>zz<CR>', opts)
 end
 --vim.keymap.set('n', 'G', 'Gzz', opts)
 vim.keymap.set('n', 'Z', '<Nop>', opts)
