@@ -22,7 +22,7 @@ return {
       -- set this to fix tab completion in command mode:
       input_word_completion = true,
       use_circular_error_navigation = true,
-      focus_compilation_buffer = true,
+      -- focus_compilation_buffer = true,
       -- focus_beginning_compilation_buffer = true,
       -- auto_scroll = true,
       -- auto_jump_to_first_error = true,

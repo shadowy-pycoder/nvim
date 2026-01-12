@@ -1,5 +1,6 @@
 return {
   'tpope/vim-fugitive',
+  enabled = true,
   config = function()
     local augroup = vim.api.nvim_create_augroup('Fugitive', {})
 

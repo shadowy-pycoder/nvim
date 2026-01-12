@@ -29,9 +29,13 @@ end
 vim.keymap.set('n', 'Z', '<Nop>', opts)
 vim.keymap.set('n', 'ZZ', '<Nop>', opts)
 vim.keymap.set('n', 'ZQ', '<Nop>', opts)
+vim.keymap.set('n', 'q', '<Nop>', opts)
 vim.keymap.set('n', 'J', 'mzJ`z', opts)
 vim.keymap.set('n', 'n', 'nzzzv', opts)
 vim.keymap.set('n', 'N', 'Nzzzv', opts)
+
+--macro
+vim.keymap.set('n', '<leader>rm', 'q', opts)
 
 --Switch windows
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
@@ -98,17 +102,23 @@ end, { desc = 'Go to previous buffer', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bd', ':bdelete!<CR>', opts) -- close buffer
 -- vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
+-- New tab
+vim.keymap.set('n', '<leader>to', '<cmd>tabnew<CR>', opts)
+-- Next tab
+vim.keymap.set('n', '<leader>tn', '<cmd>tabnext<CR>', opts)
+-- Previous tab
+vim.keymap.set('n', '<leader>tp', '<cmd>tabprevious<CR>', opts)
+-- Close tab
+vim.keymap.set('n', '<leader>tc', '<cmd>tabclose<CR>', opts)
+
 --Open terminal at the bottom in the current directory
 vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)
 
 --Run Python shell with one command
-vim.keymap.set('n', '<leader>tp', function()
+vim.keymap.set('n', '<leader>ti', function()
   vim.g._no_venv_next_term = true
   vim.cmd('split | resize 10 | term python3.14')
 end, opts)
-
---Open terminal in the current window
-vim.keymap.set('n', '<leader>tn', '<cmd>term<CR>', opts)
 
 --Open existing terminal or new one
 vim.keymap.set('n', '<leader>tt', function()
@@ -121,11 +131,13 @@ vim.keymap.set('n', '<leader>tt', function()
       local name = vim.api.nvim_buf_get_name(buf)
       if name:match('term') then
         vim.api.nvim_set_current_buf(buf)
+        vim.cmd('startinsert')
         return
       end
     end
   end
   vim.cmd('term')
+  vim.cmd('startinsert')
 end, { desc = 'Jump to existing terminal or open new one', noremap = true, silent = true })
 
 --Save current file
