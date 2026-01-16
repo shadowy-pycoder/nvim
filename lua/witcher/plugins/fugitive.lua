@@ -26,7 +26,7 @@ return {
         -- vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
       end,
     })
-    vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'git status' })
+    vim.keymap.set('n', '<leader>gs', '<cmd>tab Git<CR>', { desc = 'git status' })
     -- vim.keymap.set('n', '<leader>gm', '<cmd>Gvdiffsplit!<CR>', { desc = 'split window for merge' })
     vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>', { desc = 'get changes from the left' })
     vim.keymap.set('n', 'gh', '<cmd>diffget //3<CR>', { desc = 'get changes from the right' })

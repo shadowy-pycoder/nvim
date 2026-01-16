@@ -100,6 +100,7 @@ autocmd('User', {
   end,
 })
 
+-- activate virtual environment in new terminals
 autocmd('TermOpen', {
   pattern = '*',
   callback = function()
@@ -138,6 +139,7 @@ autocmd('TermOpen', {
 --   end,
 -- })
 
+-- make cursorline more visible in compilation buffer
 autocmd('User', {
   pattern = 'CompilationFinished',
   callback = function(ev)
@@ -160,6 +162,7 @@ autocmd('ColorScheme', {
   callback = set_compilation_cursorline_hl,
 })
 
+-- disable multicursor in certain buffers
 autocmd({ 'BufEnter', 'BufWinEnter' }, {
   callback = function()
     vim.b.mc_allowed = vim.bo.modifiable and not vim.bo.readonly and vim.bo.buftype == ''

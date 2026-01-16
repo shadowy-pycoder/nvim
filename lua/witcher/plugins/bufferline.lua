@@ -4,11 +4,11 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
     'moll/vim-bbye',
     'nvim-tree/nvim-web-devicons',
   },
-  enabled = false,
+  enabled = true,
   config = function()
     require('bufferline').setup({
       options = {
-        mode = 'buffers', -- set to "tabs" to only show tabpages instead
+        mode = 'tabs', -- set to "tabs" to only show tabpages instead
         themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
         numbers = 'none', -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
         close_command = 'Bdelete! %d', -- can be a string | function, see "Mouse actions"
@@ -41,7 +41,7 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
         minimum_padding = 1,
         maximum_padding = 5,
         maximum_length = 15,
-        sort_by = 'insert_at_end',
+        sort_by = 'id',
         offsets = {
           -- {
           --   filetype = "NvimTree",
@@ -51,6 +51,11 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
           --   text_align = "left",
           -- },
         },
+        name_formatter = function(buf)
+          if buf.path and buf.path:match('^fugitive://') then
+            return 'git'
+          end
+        end,
       },
       highlights = {
         separator = {
@@ -110,6 +115,10 @@ return { -- see https://github.com/akinsho/bufferline.nvim/blob/main/doc/bufferl
           bg = '#1f1f1f',
         },
         close_button_selected = {
+          fg = '#9d9d9d',
+          bg = '#1f1f1f',
+        },
+        tab_close = {
           fg = '#9d9d9d',
           bg = '#1f1f1f',
         },

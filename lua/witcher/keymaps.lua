@@ -48,7 +48,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 vim.keymap.set('n', '<leader>sv', '<C-w>v', opts) -- split window vertically
 vim.keymap.set('n', '<leader>sh', '<C-w>s', opts) -- split window horizontally
 vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>xx', ':close<CR>', opts) -- close current split window
+vim.keymap.set('n', '<leader>x', ':close<CR>', opts) -- close current split window
 
 function _G.resize_up()
   local n = vim.v.count1

@@ -2,6 +2,7 @@ return {
   'm4xshen/hardtime.nvim',
   lazy = false,
   dependencies = { 'MunifTanjim/nui.nvim' },
+  enabled = true,
   opts = {
     max_time = 1000,
     max_count = 5,
@@ -48,7 +49,7 @@ return {
       ['gw'] = { 'n' },
       ['g?'] = { 'n' },
     },
-    restriction_mode = 'hint', -- block or hint
+    restriction_mode = 'block', -- block or hint
     restricted_keys = {
       ['h'] = { 'n', 'x' },
       ['j'] = { 'n', 'x' },
