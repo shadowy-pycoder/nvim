@@ -21,6 +21,7 @@ return {
         toml = { 'tombi' },
         c = { 'clang-format' },
         cpp = { 'clang-format' },
+        cmake = { 'cmake_format' },
       },
       formatters = {
         shfmt = {

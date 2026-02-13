@@ -14,9 +14,9 @@ return {
     local undo_actions = require('telescope-undo.actions')
     local keymap = vim.keymap
 
-    keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Fuzzy find files in cwd' })
+    keymap.set('n', '<leader>fc', builtin.find_files, { desc = 'Fuzzy find files in cwd' })
     keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Fuzzy find recent files' })
-    keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
+    keymap.set('n', '<leader>ff', builtin.buffers, { desc = 'Find buffers' })
     keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'Find git commits' })
     keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'Find git commits for buffer' })
     keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find keymaps' })

@@ -4,11 +4,12 @@ local yank_group = augroup('HighlightYank', {})
 
 -- Prevent LSP from overwriting treesitter color settings
 -- https://github.com/NvChad/NvChad/issues/1907
-vim.hl.priorities.semantic_tokens = 0 -- Or any number lower than 100, treesitter's priority level
+-- vim.hl.priorities.semantic_tokens = 0 -- Or any number lower than 100, treesitter's priority level
 
 vim.filetype.add({
   pattern = {
     ['.*%.yaml%.dist'] = 'yaml',
+    ['.*Dockerfile.*'] = 'dockerfile',
   },
   extension = {
     h = 'c',

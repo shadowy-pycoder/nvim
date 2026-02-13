@@ -21,10 +21,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-    -- local client = vim.lsp.get_client_by_id(event.data.client_id)
-    -- if client and client.name ~= 'basedpyright' then
-    --   client.server_capabilities.semanticTokensProvider = nil
-    -- end
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client then --and client.name ~= 'clangd' then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
   end,
 })
 
@@ -77,4 +77,6 @@ vim.lsp.enable({
   'tombi',
   'ts',
   'asm',
+  'docker_language_server',
+  'cmake',
 })

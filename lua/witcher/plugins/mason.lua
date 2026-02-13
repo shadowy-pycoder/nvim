@@ -31,6 +31,9 @@ return {
         'basedpyright',
         'typescript-language-server',
         'asm-lsp',
+        'docker-language-server',
+        'neocmakelsp',
+        'cmakelang',
       },
 
       -- if set to true this will check each tool for updates. If updates

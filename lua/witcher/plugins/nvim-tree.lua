@@ -214,6 +214,8 @@ return {
           '/.ruff_cache',
           '/__pycache__',
           '/.mypy_cache',
+          '/bin',
+          '__cmake_systeminformation',
         },
       },
       actions = {
