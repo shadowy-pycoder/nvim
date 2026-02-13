@@ -43,6 +43,8 @@ return {
         'gowork',
         'gosum',
         'asm',
+        'cmake',
+        'printf',
       },
       rainbow = {
         enable = true,
