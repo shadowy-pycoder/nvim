@@ -64,6 +64,7 @@ return {
           reportCallInDefaultInitializer = 'none',
           reportOptionalMemberAccess = 'none',
           reportImportCycles = 'none',
+          reportImplicitStringConcatenation = 'none',
         },
       },
       exclude = {

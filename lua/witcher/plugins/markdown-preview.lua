@@ -11,10 +11,6 @@ return {
     local map = function(lhs, rhs, desc)
       vim.keymap.set('n', lhs, rhs, { desc = desc, silent = true })
     end
-    pcall(vim.keymap.del, 'n', '<leader>mps')
-    pcall(vim.keymap.del, 'n', '<leader>mpS')
-    pcall(vim.keymap.del, 'n', '<leader>mpr')
-
     map('<leader>mds', '<cmd>MarkdownPreview<cr>', 'Markdown: Start preview')
     map('<leader>mdd', '<cmd>MarkdownPreviewStop<cr>', 'Markdown: Stop preview')
     map('<leader>mdr', '<cmd>MarkdownPreviewRefresh<cr>', 'Markdown: Refresh preview')
