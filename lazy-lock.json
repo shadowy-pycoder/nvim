@@ -3,7 +3,7 @@
   "blink.cmp": { "branch": "main", "commit": "4b18c32adef2898f95cdef6192cbd5796c1a332d" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "compile-mode.nvim": { "branch": "nightly", "commit": "6b41499bd782be2c213011072ce0f0eb9f7b78a2" },
-  "conform.nvim": { "branch": "master", "commit": "c2526f1cde528a66e086ab1668e996d162c75f4f" },
+  "conform.nvim": { "branch": "master", "commit": "a99d71071b52a82fcc766c5d8a35ee067f95893c" },
   "cyrillic.nvim": { "branch": "master", "commit": "86186af29eed2af1a069f9e36140d116a2765c80" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "gitsigns.nvim": { "branch": "main", "commit": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519" },
@@ -12,10 +12,10 @@
   "live-server.nvim": { "branch": "main", "commit": "6897c94950e05d5b22440c6db8fa24c5c51d8d12" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "lush.nvim": { "branch": "main", "commit": "9c60ec2279d62487d942ce095e49006af28eed6e" },
-  "markdown-preview.nvim": { "branch": "main", "commit": "58ee5617fd9d5b8ed35681d215d9e0ffc7d954f3" },
+  "markdown-preview.nvim": { "branch": "main", "commit": "858391a1d01dc0daa5233184b4600e1cc0d8d9fc" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
-  "mini.ai": { "branch": "main", "commit": "b0247752cf629ce7c6bd0a1efd82fb58ff60f9d6" },
+  "mini.ai": { "branch": "main", "commit": "4b0a6207341d895b6cfe9bcb1e4d3e8607bfe4f4" },
   "mini.pairs": { "branch": "main", "commit": "b9aada8c0e59f2b938e98fbf4eae0799eba96ad9" },
   "multicursor.nvim": { "branch": "1.0", "commit": "630dd29dd696bc977cb81d7dd2fa6bb280f60fc4" },
   "neokinds": { "branch": "main", "commit": "183479bc2b1db8f242f70f85e74efe9973cfb15f" },
@@ -35,5 +35,5 @@
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
   "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
   "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
-  "vscode-theme-for-nvim": { "branch": "main", "commit": "b063d7834b761617a18b86257a8f47c9a1deca75" }
+  "vscode-theme-for-nvim": { "branch": "main", "commit": "eb5428d144724e4ea76974c4fea132053e686382" }
 }
