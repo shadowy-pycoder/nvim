@@ -174,3 +174,11 @@ autocmd({ 'BufEnter', 'BufWinEnter' }, {
     vim.b.mc_allowed = vim.bo.modifiable and not vim.bo.readonly and vim.bo.buftype == ''
   end,
 })
+
+autocmd('OptionSet', {
+  pattern = 'scroll',
+  callback = function()
+    print('scroll changed to', vim.o.scroll)
+    print(debug.traceback())
+  end,
+})

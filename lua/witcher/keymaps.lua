@@ -16,14 +16,24 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 local opts = { noremap = true, silent = true }
 
+local function scroll_and_center(key)
+  return function()
+    local count = vim.v.count > 0 and tostring(vim.v.count) or ''
+    local keys = count .. key .. 'zz'
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), 'n', false)
+  end
+end
+
 --Normal mode
 -- Vertical scroll and center
 if vim.g.lazy_keys then
   vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
   vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
 else
-  vim.keymap.set('n', '<C-d>', '<cmd>normal! <C-d>zz<CR>', opts)
-  vim.keymap.set('n', '<C-u>', '<cmd>normal! <C-u>zz<CR>', opts)
+  vim.keymap.set('n', '<C-d>', scroll_and_center('<C-d>'), opts)
+  vim.keymap.set('n', '<C-u>', scroll_and_center('<C-u>'), opts)
+  -- vim.keymap.set('n', '<C-d>', '<cmd>normal! <C-d>zz<CR>', opts)
+  -- vim.keymap.set('n', '<C-u>', '<cmd>normal! <C-u>zz<CR>', opts)
 end
 --vim.keymap.set('n', 'G', 'Gzz', opts)
 vim.keymap.set('n', 'Z', '<Nop>', opts)
