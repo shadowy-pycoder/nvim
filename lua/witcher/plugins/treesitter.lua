@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  commit = '90cd658',
+  -- commit = '90cd658',
   main = 'nvim-treesitter',
   event = { 'BufReadPost', 'BufNewFile' },
   init = function()
