@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.notify('LSP disabled for large files', vim.log.levels.WARN)
       end)
       ---@diagnostic disable-next-line:param-type-mismatch
-      vim.lsp.get_client_by_id(event.data.client_id).stop(true)
+      vim.lsp.get_client_by_id(event.data.client_id):stop(true)
       return
     end
 
@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if client then --and client.name ~= 'clangd' then
+    if client then --and client.name ~= 'clangd' and client.name ~= 'basedpyright' then
       client.server_capabilities.semanticTokensProvider = nil
     end
   end,

@@ -13,7 +13,7 @@ return {
           ['<Tab>'] = { 'show', 'accept' },
         },
         completion = { menu = { auto_show = true } },
-        sources = { 'buffer', 'cmdline' , 'path'},
+        sources = { 'buffer', 'cmdline', 'path' },
       },
       completion = {
         documentation = {
