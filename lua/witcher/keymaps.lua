@@ -1,13 +1,3 @@
--- https://www.reddit.com/r/neovim/comments/1708ppd/comment/k3jo5oi/
-local function lazy(keys)
-  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-  return function()
-    vim.o.lazyredraw = true
-    vim.api.nvim_feedkeys(keys, 'nx', false)
-    vim.o.lazyredraw = false
-  end
-end
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -15,6 +5,20 @@ vim.g.maplocalleader = ' '
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 local opts = { noremap = true, silent = true }
+
+-- https://www.reddit.com/r/neovim/comments/1708ppd/comment/k3jo5oi/
+local function lazy(keys)
+  return function()
+    local count = vim.v.count > 0 and tostring(vim.v.count) or ''
+    local full = count .. keys
+
+    full = vim.api.nvim_replace_termcodes(full, true, false, true)
+
+    vim.o.lazyredraw = true
+    vim.api.nvim_feedkeys(full, 'nx', false)
+    vim.o.lazyredraw = false
+  end
+end
 
 local function scroll_and_center(key)
   return function()
@@ -30,10 +34,10 @@ if vim.g.lazy_keys then
   vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
   vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
 else
-  -- vim.keymap.set('n', '<C-d>', scroll_and_center('<C-d>'), opts)
-  -- vim.keymap.set('n', '<C-u>', scroll_and_center('<C-u>'), opts)
-  vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
-  vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+  vim.keymap.set('n', '<C-d>', scroll_and_center('<C-d>'), opts)
+  vim.keymap.set('n', '<C-u>', scroll_and_center('<C-u>'), opts)
+  -- vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
+  -- vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 end
 --vim.keymap.set('n', 'G', 'Gzz', opts)
 vim.keymap.set('n', 'Z', '<Nop>', opts)
