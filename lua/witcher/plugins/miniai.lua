@@ -1,6 +1,7 @@
 return {
   'echasnovski/mini.ai',
   version = false,
+  enabled = true,
   config = function()
     require('mini.ai').setup({
       -- Table with textobject id as fields, textobject specification as values.
@@ -14,10 +15,10 @@ return {
         inside = 'i',
 
         -- Next/last variants
-        around_next = 'an',
-        inside_next = 'in',
-        around_last = 'al',
-        inside_last = 'il',
+        around_next = '',
+        inside_next = '',
+        around_last = '',
+        inside_last = '',
 
         -- Move cursor to corresponding edge of `a` textobject
         goto_left = 'g[',

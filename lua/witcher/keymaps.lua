@@ -10,7 +10,7 @@ local opts = { noremap = true, silent = true }
 local function lazy(keys)
   return function()
     local count = vim.v.count > 0 and tostring(vim.v.count) or ''
-    local full = count .. keys
+    local full = count .. keys .. 'zz'
 
     full = vim.api.nvim_replace_termcodes(full, true, false, true)
 
@@ -24,15 +24,15 @@ local function scroll_and_center(key)
   return function()
     local count = vim.v.count > 0 and tostring(vim.v.count) or ''
     local keys = count .. key .. 'zz'
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), 'n', false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), 'nx', false)
   end
 end
 
 --Normal mode
 -- Vertical scroll and center
 if vim.g.lazy_keys then
-  vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), opts)
-  vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), opts)
+  vim.keymap.set('n', '<C-d>', lazy('<C-d>'), opts)
+  vim.keymap.set('n', '<C-u>', lazy('<C-u>'), opts)
 else
   vim.keymap.set('n', '<C-d>', scroll_and_center('<C-d>'), opts)
   vim.keymap.set('n', '<C-u>', scroll_and_center('<C-u>'), opts)

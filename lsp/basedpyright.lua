@@ -130,13 +130,13 @@ return {
     local name = vim.api.nvim_buf_get_name(bufnr)
     if ft == 'fugitive' or vim.bo[bufnr].buftype == 'nowrite' then
       vim.schedule(function()
-        vim.lsp.stop_client(client.id)
+        vim.lsp.get_client_by_id(client.id):stop(true)
       end)
       return
     end
     if name:match('^fugitive://') then
       vim.schedule(function()
-        vim.lsp.stop_client(client.id)
+        vim.lsp.get_client_by_id(client.id):stop(true)
       end)
       return
     end

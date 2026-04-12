@@ -8,7 +8,7 @@ global._ts_force_sync_parsing = true -- async parsing causes highlight flickerin
 
 -- Editor options
 
-o.guicursor = ''
+o.guicursor = 'a:block-blinkon0'
 o.number = true -- Print the line number in front of each line
 o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
 o.clipboard = 'unnamedplus' -- uses the clipboard register for all operations except yank.
