@@ -148,11 +148,11 @@ autocmd('User', {
       vim.wo[win].cursorline = true
       vim.wo[win].winhl = 'CursorLine:CompilationCursorLine'
     end
-    vim.api.nvim_set_hl(
-      0,
-      'CompileModeMessage',
-      { fg = nil, bg = nil, underline = false, bold = false, italic = false }
-    )
+    -- vim.api.nvim_set_hl(
+    --   0,
+    --   'CompileModeMessage',
+    --   { fg = nil, bg = nil, underline = false, bold = false, italic = false }
+    -- )
   end,
 })
 
@@ -198,3 +198,5 @@ require('vim._core.ui2').enable({
     },
   },
 })
+
+--vim.lsp.codelens.enable(true)

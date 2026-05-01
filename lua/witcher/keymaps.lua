@@ -173,7 +173,10 @@ vim.keymap.set('n', '<A-m>', '<cmd>noh<CR>', opts)
 vim.keymap.set('n', '<leader>E', '<cmd>NvimTreeToggle<CR>', opts)
 
 -- substitute a word with last yanked
-vim.keymap.set('n', 'S', 'diw"0P', opts)
+-- vim.keymap.set('n', 'S', 'diw"0P', opts)
+vim.keymap.set('n', 'S', function()
+  vim.cmd('normal diq"0P')
+end, opts)
 
 -- Insert mode
 -- Move cursor
