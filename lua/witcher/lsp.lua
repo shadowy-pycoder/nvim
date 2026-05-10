@@ -79,4 +79,5 @@ vim.lsp.enable({
   'asm',
   'docker_language_server',
   'cmake',
+  'rust_analyzer',
 })

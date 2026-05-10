@@ -100,7 +100,7 @@ return {
       ['Trouble'] = true,
       ['trouble'] = true,
       ['VoltWindow'] = true,
-      ['undotree'] = true,
+      ['nvim-undotree'] = true,
       ['compilation'] = true,
     },
     ui = {

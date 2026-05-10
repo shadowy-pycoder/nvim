@@ -70,6 +70,9 @@ return {
         },
       },
       format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
         if vim.b.large_buf then
           vim.schedule(function()
             vim.notify('Formatting disabled for large files', vim.log.levels.WARN)
@@ -79,6 +82,9 @@ return {
         return { timeout_ms = 1000, lsp_format = 'fallback', async = false, quiet = false }
       end,
       format_after_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
         if vim.b.large_buf then
           return
         end
