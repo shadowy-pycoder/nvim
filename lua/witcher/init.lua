@@ -148,24 +148,14 @@ autocmd('User', {
       vim.wo[win].cursorline = true
       vim.wo[win].winhl = 'CursorLine:CompilationCursorLine'
     end
-    -- vim.api.nvim_set_hl(
-    --   0,
-    --   'CompileModeMessage',
-    --   { fg = nil, bg = nil, underline = false, bold = false, italic = false }
-    -- )
   end,
 })
 
-local function set_compilation_cursorline_hl()
-  vim.api.nvim_set_hl(0, 'CompilationCursorLine', {
-    bg = '#353535',
-  })
-end
-
-set_compilation_cursorline_hl()
-
-autocmd('ColorScheme', {
-  callback = set_compilation_cursorline_hl,
+autocmd('VimEnter', {
+  callback = function()
+    vim.cmd('highlight CompileModeMessage gui=NONE')
+    vim.cmd('highlight CompilationCursorLine guibg=#353535')
+  end,
 })
 
 -- disable multicursor in certain buffers
