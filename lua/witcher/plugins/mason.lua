@@ -2,7 +2,7 @@ return {
   'WhoIsSethDaniel/mason-tool-installer.nvim',
   enabled = true,
   dependencies = {
-    { 'mason-org/mason.nvim' },
+    { 'mason-org/mason.nvim', version = '2.2.1' },
   },
   config = function()
     require('mason').setup()
