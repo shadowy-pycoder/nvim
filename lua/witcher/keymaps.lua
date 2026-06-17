@@ -173,10 +173,10 @@ vim.keymap.set('n', '<A-m>', '<cmd>noh<CR>', opts)
 vim.keymap.set('n', '<leader>E', '<cmd>NvimTreeToggle<CR>', opts)
 
 -- substitute a word with last yanked
--- vim.keymap.set('n', 'S', 'diw"0P', opts)
-vim.keymap.set('n', 'S', function()
-  vim.cmd('normal diq"0P')
-end, opts)
+vim.keymap.set('n', 'S', 'diw"0P', opts)
+-- vim.keymap.set('n', 'S', function()
+--   vim.cmd('normal diq"0P')
+-- end, opts)
 
 -- Insert mode
 -- Move cursor
@@ -256,3 +256,13 @@ vim.keymap.set('n', '<leader>gM', function()
     end,
   })
 end, opts)
+
+-- Swap two words
+-- vim.keymap.set('n', 'gE', function()
+--   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('dawea <Esc>pxBB', true, false, true), 'n', false)
+-- end, opts)
+
+-- Swap two chars
+-- vim.keymap.set('n', 'ge', function()
+--   vim.cmd('normal! xph')
+-- end)

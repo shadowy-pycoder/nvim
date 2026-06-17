@@ -212,3 +212,9 @@ end, {
 vim.schedule(function()
   vim.cmd('packadd nvim.undotree')
 end)
+
+-- autocmd('ColorScheme', {
+--   callback = function()
+--     vim.api.nvim_set_hl(0, 'SnippetTabstop', {})
+--   end,
+-- })
