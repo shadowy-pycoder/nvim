@@ -1,5 +1,5 @@
 return {
-  'thebigcicca/neokinds',
+  'shadowy-pycoder/neokinds',
   config = function()
     local neokinds = require('neokinds')
     neokinds.setup({

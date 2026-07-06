@@ -188,6 +188,8 @@ vim.keymap.set('i', '<A-l>', '<Right>', opts)
 -- Paste
 vim.keymap.set('i', '<A-p>', '<Esc>"+pa', opts)
 
+vim.keymap.set('i', '<C-i>', '<Nop>', opts)
+
 --Visual mode
 --Move selected lines
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
