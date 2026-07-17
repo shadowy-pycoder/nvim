@@ -188,7 +188,9 @@ vim.keymap.set('i', '<A-l>', '<Right>', opts)
 -- Paste
 vim.keymap.set('i', '<A-p>', '<Esc>"+pa', opts)
 
+-- Disable insert mode keybinds
 vim.keymap.set('i', '<C-i>', '<Nop>', opts)
+vim.keymap.set('i', '<C-t>', '<Nop>', opts)
 
 --Visual mode
 --Move selected lines

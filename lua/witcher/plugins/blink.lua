@@ -98,6 +98,12 @@ return {
         frecency = {
           enabled = false,
         },
+        sorts = {
+          'exact',
+          -- defaults
+          'score',
+          'sort_text',
+        },
         use_proximity = false,
         max_typos = function(_)
           return 0
