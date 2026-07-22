@@ -49,7 +49,7 @@ return {
       ['gw'] = { 'n' },
       ['g?'] = { 'n' },
     },
-    restriction_mode = 'block', -- block or hint
+    restriction_mode = 'hint', -- block or hint
     restricted_keys = {
       ['h'] = { 'n', 'x' },
       ['j'] = { 'n', 'x' },

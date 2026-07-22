@@ -191,6 +191,7 @@ vim.keymap.set('i', '<A-p>', '<Esc>"+pa', opts)
 -- Disable insert mode keybinds
 vim.keymap.set('i', '<C-i>', '<Nop>', opts)
 vim.keymap.set('i', '<C-t>', '<Nop>', opts)
+vim.keymap.set('i', '<C-l>', '<Nop>', opts)
 
 --Visual mode
 --Move selected lines
