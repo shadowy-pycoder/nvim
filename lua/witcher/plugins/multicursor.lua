@@ -66,6 +66,9 @@ return {
       apply(false)
 
       set('n', '<leader>mt', function()
+        if mc.hasCursors() then
+          mc.clearCursors()
+        end
         apply(vim.g.mc_enabled ~= 1)
         vim.notify('multicursor add/skip ' .. (vim.g.mc_enabled == 1 and 'enabled' or 'disabled (resize mode)'))
       end, { desc = 'Toggle multicursor/resize keymaps' })
