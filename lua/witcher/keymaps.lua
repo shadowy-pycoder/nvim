@@ -62,40 +62,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 vim.keymap.set('n', '<leader>sv', '<C-w>v', opts) -- split window vertically
 vim.keymap.set('n', '<leader>sh', '<C-w>s', opts) -- split window horizontally
 vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>x', ':close<CR>', opts) -- close current split window
-
-function _G.resize_up()
-  local n = vim.v.count1
-  vim.cmd('resize +' .. (2 * n))
-end
-
-function _G.resize_down()
-  local n = vim.v.count1
-  vim.cmd('resize -' .. (2 * n))
-end
-
-function _G.resize_left()
-  local n = vim.v.count1
-  vim.cmd('vertical resize -' .. (2 * n))
-end
-
-function _G.resize_right()
-  local n = vim.v.count1
-  vim.cmd('vertical resize +' .. (2 * n))
-end
-
-local function resize_op(fn)
-  return function()
-    vim.o.operatorfunc = fn
-    return 'g@l'
-  end
-end
-
--- Resize windows
-vim.keymap.set('n', '<leader>rh', resize_op('v:lua.resize_left'), { expr = true })
-vim.keymap.set('n', '<leader>rj', resize_op('v:lua.resize_down'), { expr = true })
-vim.keymap.set('n', '<leader>rk', resize_op('v:lua.resize_up'), { expr = true })
-vim.keymap.set('n', '<leader>rl', resize_op('v:lua.resize_right'), { expr = true })
+vim.keymap.set('n', '<leader>sx', ':close<CR>', opts) -- close current split window
 
 -- Buffers
 vim.keymap.set('n', '<Tab>', function()

@@ -6,34 +6,69 @@ return {
     config = function()
       local mc = require('multicursor-nvim')
       mc.setup()
-
       local set = vim.keymap.set
 
-      -- Add or skip cursor above/below the main cursor.
-      set({ 'n', 'x' }, '<A-k>', function()
-        if not vim.b.mc_allowed then
-          return
+      local sets = {
+        multicursor = {
+          {
+            '<A-k>',
+            function()
+              if not vim.b.mc_allowed then
+                return
+              end
+              mc.lineAddCursor(-1)
+            end,
+          },
+          {
+            '<A-j>',
+            function()
+              if not vim.b.mc_allowed then
+                return
+              end
+              mc.lineAddCursor(1)
+            end,
+          },
+          {
+            '<A-h>',
+            function()
+              if not vim.b.mc_allowed then
+                return
+              end
+              mc.lineSkipCursor(-1)
+            end,
+          },
+          {
+            '<A-l>',
+            function()
+              if not vim.b.mc_allowed then
+                return
+              end
+              mc.lineSkipCursor(1)
+            end,
+          },
+        },
+        -- Resize windows with alt
+        resize = {
+          { '<A-h>', ':vertical resize -2<CR>' },
+          { '<A-j>', ':resize +2<CR>' },
+          { '<A-k>', ':resize -2<CR>' },
+          { '<A-l>', ':vertical resize +2<CR>' },
+        },
+      }
+
+      local function apply(enabled)
+        vim.g.mc_enabled = enabled and 1 or 0
+        for _, m in ipairs(sets[enabled and 'multicursor' or 'resize']) do
+          set({ 'n', 'x' }, m[1], m[2], { desc = enabled and 'multicursor' or 'resize', noremap = true, silent = true })
         end
-        mc.lineAddCursor(-1)
-      end)
-      set({ 'n', 'x' }, '<A-j>', function()
-        if not vim.b.mc_allowed then
-          return
-        end
-        mc.lineAddCursor(1)
-      end)
-      set({ 'n', 'x' }, '<A-h>', function()
-        if not vim.b.mc_allowed then
-          return
-        end
-        mc.lineSkipCursor(-1)
-      end)
-      set({ 'n', 'x' }, '<A-l>', function()
-        if not vim.b.mc_allowed then
-          return
-        end
-        mc.lineSkipCursor(1)
-      end)
+      end
+
+      apply(false)
+
+      set('n', '<leader>mt', function()
+        apply(vim.g.mc_enabled ~= 1)
+        vim.notify('multicursor add/skip ' .. (vim.g.mc_enabled == 1 and 'enabled' or 'disabled (resize mode)'))
+      end, { desc = 'Toggle multicursor/resize keymaps' })
 
       -- Add or skip adding a new cursor by matching word/selection
       set({ 'n', 'x' }, '<A-n>', function()
