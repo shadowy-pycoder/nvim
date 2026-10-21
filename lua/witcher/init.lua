@@ -218,3 +218,24 @@ end)
 --     vim.api.nvim_set_hl(0, 'SnippetTabstop', {})
 --   end,
 -- })
+local function close_other_buffers(force)
+  local cur = vim.api.nvim_get_current_buf()
+  local kept = {}
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= cur and vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
+      local ok = pcall(vim.api.nvim_buf_delete, buf, { force = force })
+      if not ok then
+        table.insert(kept, vim.fn.bufname(buf))
+      end
+    end
+  end
+  if #kept > 0 then
+    vim.notify('Unsaved buffers: ' .. table.concat(kept, ', '), vim.log.levels.WARN)
+  end
+end
+
+vim.api.nvim_create_user_command('BufOnly', function(opts)
+  close_other_buffers(opts.bang)
+end, { bang = true, desc = 'Close all buffers except current' })
+
+vim.keymap.set('n', '<leader>bo', close_other_buffers, { desc = 'Close other buffers' })
