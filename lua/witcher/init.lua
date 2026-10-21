@@ -202,6 +202,7 @@ end, {
   desc = 'Disable autoformat-on-save',
   bang = true,
 })
+
 vim.api.nvim_create_user_command('FormatEnable', function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
@@ -221,12 +222,27 @@ end)
 local function close_other_buffers(force)
   local cur = vim.api.nvim_get_current_buf()
   local kept = {}
+  local closed = 0
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if buf ~= cur and vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
-      local ok = pcall(vim.api.nvim_buf_delete, buf, { force = force })
-      if not ok then
+    if
+      buf ~= cur
+      and vim.api.nvim_buf_is_loaded(buf)
+      and vim.bo[buf].buflisted
+      and vim.bo[buf].buftype ~= 'terminal'
+    then
+      if vim.bo[buf].modified and not force then
         table.insert(kept, vim.fn.bufname(buf))
+      else
+        pcall(vim.api.nvim_buf_delete, buf, { force = force })
+        closed = closed + 1
       end
+    end
+  end
+  if closed > 0 then
+    if closed == 1 then
+      vim.notify('Closed ' .. closed .. ' buffer', vim.log.levels.INFO)
+    else
+      vim.notify('Closed ' .. closed .. ' buffers', vim.log.levels.INFO)
     end
   end
   if #kept > 0 then
