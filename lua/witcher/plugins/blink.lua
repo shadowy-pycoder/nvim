@@ -4,6 +4,7 @@ return {
     'rafamadriz/friendly-snippets',
   },
   version = '1.*',
+  enabled = true,
   config = function()
     require('blink.cmp').setup({
       cmdline = {

@@ -49,7 +49,7 @@ vim.lsp.config('*', {
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/diagnostics/config.lua
 vim.diagnostic.config({
   virtual_lines = false,
-  -- virtual_text = true,
+  virtual_text = true,
   underline = true,
   update_in_insert = false,
   severity_sort = true,

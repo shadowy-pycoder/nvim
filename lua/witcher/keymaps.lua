@@ -183,15 +183,11 @@ vim.keymap.set('t', '<A-Esc>', '<C-\\><C-n>')
 
 -- Diagnostics toggle
 -- https://www.reddit.com/r/neovim/comments/1ae6iwm/disable_lsp_diagnostics/
-vim.g['diagnostics_active'] = true
+vim.g.diagnostics_text = true
+
 function Toggle_diagnostics()
-  if vim.g.diagnostics_active then
-    vim.g.diagnostics_active = false
-    vim.diagnostic.enable(false)
-  else
-    vim.g.diagnostics_active = true
-    vim.diagnostic.enable()
-  end
+  vim.g.diagnostics_text = not vim.g.diagnostics_text
+  vim.diagnostic.config({ virtual_text = vim.g.diagnostics_text, underline = vim.g.diagnostics_text })
 end
 
 vim.keymap.set('n', '<leader>dd', Toggle_diagnostics, opts)
