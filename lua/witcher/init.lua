@@ -258,8 +258,8 @@ vim.keymap.set('n', '<leader>bo', close_other_buffers, { desc = 'Close other buf
 
 vim.api.nvim_create_user_command('W', 'write<bang> <args>', { bang = true, nargs = '?', complete = 'file' })
 
-autocmd('LspAttach', {
-  callback = function(ev)
-    vim.lsp.document_color.enable(false, { bufnr = ev.buf })
-  end,
-})
+-- autocmd('LspAttach', {
+--   callback = function(ev)
+--     vim.lsp.document_color.enable(false, { bufnr = ev.buf })
+--   end,
+-- })
