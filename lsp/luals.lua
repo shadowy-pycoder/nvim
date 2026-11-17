@@ -13,18 +13,19 @@ return {
   },
   settings = {
     Lua = {
-      format = {
-        enable = false,
-      },
+      format = { enable = false },
+      runtime = { version = 'LuaJIT' },
       diagnostics = {
-        globals = { 'vim', 'require' },
-      },
-      runtime = {
-        version = 'LuaJIT',
+        globals = { 'vim' },
+        workspaceDelay = 3000,
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME },
+        maxPreload = 2000,
+        preloadFileSize = 200,
       },
+      telemetry = { enable = false },
     },
   },
 }
