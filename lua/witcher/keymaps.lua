@@ -62,7 +62,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 vim.keymap.set('n', '<leader>sv', '<C-w>v', opts) -- split window vertically
 vim.keymap.set('n', '<leader>sh', '<C-w>s', opts) -- split window horizontally
 vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>sx', ':close<CR>', opts) -- close current split window
+vim.keymap.set('n', '<leader>sx', '<cmd>close<CR>', opts) -- close current split window
 
 -- Buffers
 vim.keymap.set('n', '<Tab>', function()
@@ -80,7 +80,7 @@ vim.keymap.set('n', '<S-Tab>', function()
   end
   vim.cmd('bprev')
 end, { desc = 'Go to previous buffer', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>bd', ':bdelete!<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete!<CR>', opts) -- close buffer
 -- vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 -- New tab
@@ -93,7 +93,7 @@ vim.keymap.set('n', '<leader>tp', '<cmd>tabprevious<CR>', opts)
 vim.keymap.set('n', '<leader>tc', '<cmd>tabclose<CR>', opts)
 
 --Open terminal at the bottom in the current directory
-vim.keymap.set('n', '<leader>ts', ':split<CR>:resize 10<CR>:term<CR>', opts)
+vim.keymap.set('n', '<leader>ts', '<cmd>split<CR><cmd>resize 10<CR><cmd>term<CR>', opts)
 
 --Run Python shell with one command
 vim.keymap.set('n', '<leader>ti', function()

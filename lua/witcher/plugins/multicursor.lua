@@ -49,10 +49,10 @@ return {
         },
         -- Resize windows with alt
         resize = {
-          { '<A-h>', ':vertical resize -2<CR>' },
-          { '<A-j>', ':resize +2<CR>' },
-          { '<A-k>', ':resize -2<CR>' },
-          { '<A-l>', ':vertical resize +2<CR>' },
+          { '<A-h>', '<cmd>vertical resize -2<CR>' },
+          { '<A-j>', '<cmd>resize +2<CR>' },
+          { '<A-k>', '<cmd>resize -2<CR>' },
+          { '<A-l>', '<cmd>vertical resize +2<CR>' },
         },
       }
 
